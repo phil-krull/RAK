@@ -24,9 +24,9 @@ module.exports = {
 	addFriend: function(req,res){
 		User.findOne({_id: req.params.id}, function(err, user){
 			console.log(user);
-			User.friends.push(req.body.friendId);
+			user.friends.push(req.body.friendID);
 
-			User.save(function(err,User){
+			user.save(function(err,User){
 				if(err){
 					res.send(err);
 				} else {
