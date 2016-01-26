@@ -1,0 +1,12 @@
+<div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Assigned DAK's</th>
+    </tr>
+    <tr ng-repeat="friend in friendsCtlr.friends">
+      <tr ng-bind="friend.name"></tr>
+      <tr ng-bind="friend.pending"></tr>
+    </tr>
+  </table>
+</div>
