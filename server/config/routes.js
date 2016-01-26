@@ -4,6 +4,8 @@ var Users = require('./../controllers/users.js');
 
 var Acts = require('./../controllers/acts.js');
 
+var Pictures = require('./../controllers/pictures.js');
+
 
 
 module.exports = function(app) {
@@ -12,7 +14,7 @@ module.exports = function(app) {
 
 	app.post('/users', Users.addAct)
 
-	app.post('/users/:id', Users.addFriend)
+	app.post('/users/:id' , Users.addFriend)
 
 	app.get('/users', Users.index)
 
@@ -24,7 +26,7 @@ module.exports = function(app) {
     Acts.create(req, res)
   })
 
-  app.post('/acts' + user.id, function(req, res) {
+  app.post('/acts/' + user._id, function(req, res) {
     Acts.update(req, res)
   })
 
