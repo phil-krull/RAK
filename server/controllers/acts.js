@@ -30,9 +30,9 @@ module.exports = {
     },
 
     update: function(req, res) {
-      User.findOne({_id: req.body.userId}, function(errors, user) {
-        User.pending.push(req.body.actId);
-        User.save(function(errors) {
+      User.findOne({_id: req.params.id}, function(errors, user) {
+        user.pending.push(req.body.actId);
+        user.save(function(errors) {
           if(errors) {
             res.send(errors)
           } else {

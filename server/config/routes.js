@@ -13,7 +13,7 @@ module.exports = function(app) {
 
 	// app.post('/users', Users.addAct)
 
-	app.post('/users/:id' , Users.addFriend)
+	app.post('/friends/:id' , Users.addFriend)
 
 	app.get('/users', Users.index)
 

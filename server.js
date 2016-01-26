@@ -16,3 +16,7 @@ require('./server/config/routes.js')(app);
 app.listen(8888, function() {
   console.log('listening on port 8888........')
 })
+
+process.on('uncaughtException', function (err) {
+    console.log(err);
+}); 

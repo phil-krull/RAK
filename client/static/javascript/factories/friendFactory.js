@@ -13,7 +13,7 @@ dak_app.factory('friendFactory', function($http) {
 
 
 	factory.create = function(info) {
-		$http.post('friends/'+info).success(function(output) {
+		$http.post('friends/', info).success(function(output) {
 			console.log('Received from server create friend');
 			console.log(output);
 		})
