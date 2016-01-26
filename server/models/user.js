@@ -12,7 +12,7 @@ var userSchema = new Schema({
 		required: true,
 	},
 
-	email: { type: String, unique: true, required: true},
+	email: { type: String, unique: true, required: true, match: /.+\@.+\..+/ },
 	password: {type: String, required: true},
 	friends: [{ type: Schema.Types.ObjectId, ref: 'Friends'}],
 	done: [{ type: Schema.Types.ObjectId, ref: 'Done'}],

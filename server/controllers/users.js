@@ -35,6 +35,16 @@ module.exports = {
 			})
 		})
 	},
+	show: function(req,res){
+		User.findOne({_id: req.params.id}, function(err, user){
+			if(err){
+				res.json(err);
+			} else {
+				res.json(user)
+			}
+		})
+	}
+
 	// addAct: function (req,res){
 	// 	User.findOne({_id: req.body.userID}, function (err, act){
 	// 		users.pending.push(req.body.actsID);
@@ -57,7 +67,7 @@ module.exports = {
 			if(err){
 				res.send(err);
 			} else {
-				res.json(true);
+				res.json(users);
 			}
 		})
 	}
