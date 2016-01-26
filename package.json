@@ -9,15 +9,12 @@
   },
   "repository": {
     "type": "git",
-
     "url": "git+https://github.com/phil-krull/RAK.git"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-
     "url": "https://github.com/phil-krull/RAK/issues"
   },
   "homepage": "https://github.com/phil-krull/RAK#readme",

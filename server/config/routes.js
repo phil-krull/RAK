@@ -4,6 +4,8 @@ var Users = require('./../controllers/users.js');
 
 var Acts = require('./../controllers/acts.js');
 
+var Pictures = require('./../controllers/pictures.js');
+
 
 
 module.exports = function(app) {
