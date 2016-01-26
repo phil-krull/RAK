@@ -18,7 +18,7 @@ dak_app.factory('actFactory', function($http) {
 		$http.post('/acts', info).success(function(output) {
 			console.log('Received from server create act');
 			console.log(output);
-		}
+		})
 
 	}
 

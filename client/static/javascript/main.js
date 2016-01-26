@@ -4,21 +4,21 @@ dak_app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: './partials/homepage.html',
-      controller: './javascript/controllers/homepageController.js',
+      controller: 'homepageController',
       controllerAs: 'homepageCtrl'
     })
     .when('/login', {
       templateUrl: './partials/login.html',
-      controller: './javascript/controllers/loginController.js',
+      controller: 'loginController',
       controllerAs: 'loginCtrl'
     })
     .when('/logout', {
-      controller: './javascript/controllers/logoutController.js'
+      controller: 'logoutController',
       controllerAs: 'logoutCtrl'
     })
     .when('/register', {
       templateUrl: './partials/register.html',
-      controller: './javascript/controllers/registerController.js',
+      controller: 'registerController',
       controllerAs: 'registerCtrl'
     })
     .otherwise({

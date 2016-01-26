@@ -1,6 +1,6 @@
 dak_app.controller('homepageController', function($cookies, $location, userFactory, friendFactory, actFactory) {
 
-	users = []
+	users = [];
 
 	var _this = this;
 	userFactory.index(function(data) {

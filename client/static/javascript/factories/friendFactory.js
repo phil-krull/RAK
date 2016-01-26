@@ -19,4 +19,6 @@ dak_app.factory('friendFactory', function($http) {
 		})
 
 	}
+
+	return factory;
 })

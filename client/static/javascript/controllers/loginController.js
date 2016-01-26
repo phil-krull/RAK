@@ -1,4 +1,4 @@
-dak_app.controller('loginController', function(userFactory. $cookies, $location) {
+dak_app.controller('loginController', function(userFactory, $cookies, $location) {
 
 	this.error;
 
