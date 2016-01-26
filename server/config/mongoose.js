@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var path = require('path');
 
-mongoose.connect('mongodb://localhost/_____/*DB NAME HERE*/_____');
+mongoose.connect('mongodb://localhost/rak');
 
 var models_path = path.join(__dirname, './../models');
 
