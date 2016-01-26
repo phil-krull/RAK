@@ -19,7 +19,7 @@ module.exports = {
     },
 
     create: function(req, res) {
-      var new_act = new act(req.body);
+      var new_act = new Acts(req.body);
       new_act.save(function(errors, act) {
         if(errors) {
           res.send(errors)
