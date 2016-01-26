@@ -4,10 +4,12 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 	name: String,
-	alias: String,
-	email: String,
-	password: String,
-	friends: [{ type: Schema.Types.ObjectID, ref: 'Friends'}]
+	alias: { type: String, unique: true, required: true},
+	email: { type: String, unique: true, required: true},
+	password: {type: String, required: true},
+	friends: [{ type: Schema.Types.ObjectId, ref: 'Friends'}],
+	done: [{ type: Schema.Types.ObjectId, ref: 'Done'}],
+	pending: [{ type: Schema.Types.ObjectId, ref: 'Pending'}]
 });
 
 mongoose.model('User', userSchema);
