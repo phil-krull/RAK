@@ -7,7 +7,7 @@ var userSchema = new Schema({
 	alias: String,
 	email: String,
 	password: String,
-	friends: [{ type: Schema.Types.ObjectID, ref: 'Friends'}]
+	friends: [{type: Schema.Types.ObjectId, ref: 'Friends'}]
 });
 
 mongoose.model('User', userSchema);
