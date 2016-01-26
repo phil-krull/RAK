@@ -8,5 +8,9 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 		_this.users = data;
 	})
 
+  this.createDAK = function() {
+    actFactory.create(this.newDAK);
+    this.newDAK = {};
+  }
 
 })

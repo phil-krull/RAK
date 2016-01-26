@@ -43,7 +43,7 @@ module.exports = {
 				res.json(user)
 			}
 		})
-	}
+	},
 
 	// addAct: function (req,res){
 	// 	User.findOne({_id: req.body.userID}, function (err, act){
