@@ -14,15 +14,18 @@ module.exports = {
 		})
 		newUser.save(function(err, newUser){
 			if(err){
-				res.send(err);
+				console.log(err);
+				res.json(err);
 			} else{
 				res.json(true);
 			}
 		})
 	},
 	addFriend: function(req,res){
-		User.findOne({_id: req.body.userID}, function(err, customer){
-			users.friends.push(req.body.friendId);
+		User.findOne({_id: req.body.userID}, function(err, user){
+			console.log(user);
+			User.friends.push(req.body.friendId);
+
 			User.save(function(err,User){
 				if(err){
 					res.send(err);

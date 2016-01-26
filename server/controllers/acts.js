@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
-var act = mongoose.model('act');
-var User = mongoose.model('user');
+var Acts = mongoose.model('act');
+var Users = mongoose.model('User');
 
 module.exports = {
 
     index: function(req, res) {
-      act.find({}, function(errors, acts) {
+      Acts.find({}, function(errors, acts) {
         if(errors) {
           res.send(errors)
         } else {

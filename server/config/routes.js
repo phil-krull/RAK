@@ -9,8 +9,7 @@ var Acts = require('./../controllers/acts.js');
 module.exports = function(app) {
 	app.post('/users', Users.create)
 
-
-	app.post('/users', Users.addAct)
+	// app.post('/users', Users.addAct)
 
 	app.post('/users/:id' , Users.addFriend)
 
@@ -24,7 +23,7 @@ module.exports = function(app) {
     Acts.create(req, res)
   })
 
-  app.post('/acts/' + user._id, function(req, res) {
+  app.post('/acts/:id', function(req, res) {
     Acts.update(req, res)
   })
 

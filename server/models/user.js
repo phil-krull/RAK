@@ -4,7 +4,14 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 	name: String,
-	alias: { type: String, unique: true, required: true},
+	// alias: { type: String, unique: true, required: true}, 'Someone is already using that alias, pick another!',
+
+	alias: { 
+		type: String,
+		unique: true,
+		required: true,
+	},
+
 	email: { type: String, unique: true, required: true},
 	password: {type: String, required: true},
 	friends: [{ type: Schema.Types.ObjectId, ref: 'Friends'}],
