@@ -5,6 +5,7 @@ var actsSchema = new Schema({
   name: String,
   users: [{name: Schema.Types.ObjectId}],
   rating: [{rating: Number}],
+  approval: Boolean
   
 })
 

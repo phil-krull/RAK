@@ -6,9 +6,20 @@ var Acts = require('./../controllers/acts.js');
 
 var Pictures = require('./../controllers/pictures.js');
 
+var Comments = require('./../controllers/comments.js');
+
+var Feedback = require('./../controllers/feedbacks.js');
+
+
+
 
 
 module.exports = function(app) {
+
+  app.post('/feedback', Feedback.create)
+
+  app.post('/comments', Comments.create)
+
 	app.post('/users', Users.create)
 
 	// app.post('/users', Users.addAct)

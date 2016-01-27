@@ -11,6 +11,7 @@
 			text-align: center;
 			font-size: 18px;
 			color: white;
+
 		}
 
 		form {
@@ -36,12 +37,14 @@
 	</style>
 	<div class="contactContainer">	
 		<form>
-			<p>First Name: <input type="text"  size="50"></p>
-			<p>Last Name: <input type="text"  size="50"></p>
-			<p>Email: <input type="text"  size="50"></p>
+			<p>First Name: <input type="text"  size="50" ng-model='homepageCtrl.newFeedback.first_name'></p>
+			<p>Last Name: <input type="text"  size="50" ng-model='homepageCtrl.newFeedback.last_name'></p>
+			<p>Email: <input type="text"  size="50" ng-model='homepageCtrl.newFeedback.email'></p>
 			<p>Comment/Concern:</p>
-			<textarea rows="7" cols="63"></textarea><br><br>
-			<button>Submit</button>
+			<textarea rows="7" cols="63" ng-model='homepageCtrl.newFeedback.comment'></textarea><br><br>
+			<button ng-click='homepageCtrl.sendFeedback()'>Submit</button>
 		</form>
+
+
 	</div>
 </div>
