@@ -21,6 +21,21 @@ dak_app.config(function ($routeProvider) {
       controller: 'registerController',
       controllerAs: 'registerCtrl'
     })
+    .when('/userdashboard', {
+      templateUrl: './partials/userDashboard.html',
+      controller: 'userdashboardController',
+      controllerAs: 'userdashboardCtrl'
+    })
+    .when('/frienddashboard', {
+      templateUrl: './partials/friendDashboard.html',
+      controller: 'frienddashboardController',
+      controllerAs: 'frienddashboardCtrl'
+    })
+    .when('/leaderdashboard', {
+      templateUrl: './partials/leaderDashboard.html',
+      controller: 'leaderdashboardController',
+      controllerAs: 'leaderdashboardCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     })

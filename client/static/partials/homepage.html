@@ -6,11 +6,11 @@
 <div ng-if="homepageCtrl.loggedin">
 <a href="#/logout">Logout</a>
 <a href="#/userdashboard">Your Dashboard</a>
-<a href="#/friendsdashboard">Friends Dashboard</a>
-<a href="#/leadersdashboard">Leaders Dashboard</a>
+<a href="#/frienddashboard">Friends Dashboard</a>
+<a href="#/leaderdashboard">Leaders Dashboard</a>
 
 </div>
-
+</div>
 
 <div>
   <form class="form" ng-submit="homepageCtrl.createDAK()">
@@ -18,6 +18,17 @@
   </form>
 </div>
 
-<!-- <a href="#/userdashboa -->
+<div ng-if="homepageCtrl.reachedDAKlimit">
+<span ng-bind="homepageCtrl.reachedDAKlimit"></span>
+</div>
+
+<button ng-click="homepageCtrl.generateDAK()">Generate Daily Act of Kindness</button>
+
+
+<div ng-if="homepageCtrl.generatedDAK">
+<span ng-bind="homepageCtrl.generatedDAK"></span>
+</div>
+
+
 
 </div>

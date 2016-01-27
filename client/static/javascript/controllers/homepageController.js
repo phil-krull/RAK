@@ -6,7 +6,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 
 	this.loggedin;
 
-	_this.loggedin
+	_this = this;
 	actFactory.loggedin(function(data) {
 		_this.loggedin = data;
 	})
@@ -22,6 +22,24 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	    this.newDAK = {};
 	  }
 
+	this.reachedDAKlimit;
+	this.DAKlimit;
+	this.generatedDAK;
 
+	this.generateDAk = function() {
+		if(!this.loggedin) {
+			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+			if(this.DAKlimit == 1) {
+				this.DAKlimit++;
+			} else if (this.DAKlimit == 3) {
+				this.reachedDAKlimit = 'You have reached the limit of generating new DAKS'
+			} else {
+				this.DAKlimit = 1; 
+			}
+			
+		} else {
+			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+		}
+	}
 
 })
