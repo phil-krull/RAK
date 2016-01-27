@@ -16,7 +16,7 @@ dak_app.controller('registerController', function(userFactory, $location, $cooki
 			} else {
 				$cookies.put('userId', output._id );
 				$cookies.put('userName', output.name);
-				$location.path('/');
+				$location.path('/login');
 			}
 
 		});

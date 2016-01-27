@@ -42,9 +42,9 @@ module.exports = {
 		newUser.save(function(err, newUser){
 			if(err){
 				console.log(err);
-				res.json(err);
+				res.send(err);
 			} else{
-				res.json(true);
+				res.json(newUser);
 			}
 		})
 	},
