@@ -1,34 +1,12 @@
 
-<div id="sandwich menu">
-<a href="#/login">Login</a>
-<a href="#/register">Register</a>
-
-<div ng-if="homepageCtrl.loggedin">
-<a href="#/logout">Logout</a>
-<a href="#/userdashboard">Your Dashboard</a>
-<a href="#/frienddashboard">Friends Dashboard</a>
-<a href="#/leaderdashboard">Leaders Dashboard</a>
-
-</div>
-</div>
 
 <div>
-  <form class="form" ng-submit="homepageCtrl.createDAK()">
-    <p><button type="submit" ng-disabled="disabled">Submit</button>  <textarea rows="1" cols="100" placeholder="Submit a new DAK" name="name" ng-model="homepageCtrl.newDAK.name" required></textarea></p>
-  </form>
-</div>
 
-<div ng-if="homepageCtrl.reachedDAKlimit">
-<span ng-bind="homepageCtrl.reachedDAKlimit"></span>
-</div>
-
-<button ng-click="homepageCtrl.generateDAK()">Generate Daily Act of Kindness</button>
-
-
-<div ng-if="homepageCtrl.generatedDAK">
-<span ng-bind="homepageCtrl.generatedDAK"></span>
-</div>
-
-
-
+	<div class="main">
+		<h2>Imagine a World</h2>
+		<h2>Where <span id="blue">Others</span></h2>
+		<h2><span id="blue">Come First</span></h2><br>
+		<button ng-click="homepageCtrl.generateDAK()">Get My Daily Act of Kindness</button> 
+	</div>
+	
 </div>

@@ -1,1 +1,41 @@
-<span ng-bind="userdashboardCtrl.userName"></span>'s User Dashboard
+<div class="userdashboardContainer">
+	<style>
+    .userdashboardContainer {
+      background: rgba(0,0,0,0.8);
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border: solid 10px rgba(29,150,29,0.7);
+      width: 100%;
+      height: 100%;
+      padding: 5% 10%;
+      text-align: center;
+      font-size: 18px;
+      color: white;
+    }
+
+    button {
+      background: rgba(29,150,29,0.8);
+      font-size: 20px;
+      padding: 1% 2%;
+      color: white;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: rgba(51, 204, 255, 0.7);
+    }
+
+</style>
+	<h1><span ng-bind="userdashboardCtrl.userName"></span>'s User Dashboard</h1>
+
+		<a href="#/userdashboard">Your Dashboard</a>
+		<a href="#/frienddashboard">Friends Dashboard</a>
+		<a href="#/leaderdashboard">Leaders Dashboard</a>
+
+	<div ng-if="homepageCtrl.reachedDAKlimit">
+		<span ng-bind="homepageCtrl.reachedDAKlimit"></span>
+	</div>
+	<div ng-if="homepageCtrl.generatedDAK">
+		<span ng-bind="homepageCtrl.generatedDAK"></span>
+	</div>
+</div>

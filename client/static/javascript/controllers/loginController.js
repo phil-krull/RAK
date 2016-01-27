@@ -11,14 +11,15 @@ dak_app.controller('loginController', function(userFactory, $cookies, $location,
 		userFactory.login(this.loginForm, function(output) {
 			console.log(output);
 
-			if(output.errmsg) {
-				_this.error = output.errmsg;
+			if(output === "wrong email or wrong password") {
+				_this.error = output;
 				
 			} else {
+				this.error = {};
 				$cookies.put('userId', output._id);
 				$cookies.put('userName', output.name);
 				actFactory.login();
-				$location.path('/homepage');
+				$location.path('/userdashboard');
 			}
 		})
 
