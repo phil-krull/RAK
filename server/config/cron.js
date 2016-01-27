@@ -1,10 +1,10 @@
-var CronJob = require('cron').CronJob;
-
-
 var mongoose = require('mongoose');
 
+var CronJob = require('cron').CronJob;
+
+var Users = mongoose.model('user');
+
 // var Acts = mongoose.model('act');
-var Users = mongoose.model('User');
 
 var timezones = ["America/Los_Angeles", 'America/Denver', 'America/Chicago', 'America/New_York'];
 

@@ -3,20 +3,22 @@ dak_app.controller('registerController', function(userFactory, $location, $cooki
 	this.error;
 
 	this.register = function() {
-		console.log(this.registerForm.username);
-		console.log(this.registerForm.password);
+		
 
 		var _this = this;
 		userFactory.create(this.registerForm, function(output) {
 			console.log(output);
 
-			if(output[0] === "Error") {	
-				_this.error = output;
+// Jesse, I changed the bottom just to see if it would would into the if statement
+// it worked like a charm
+			if(output.errors) {	
+				// console.log('in failed register statement');
+				_this.error = output.errmsg;
 				$location.path('/register');
 			} else {
 				$cookies.put('userId', output._id );
 				$cookies.put('userName', output.name);
-				$location.path('/');
+				$location.path('/login');
 			}
 
 		});

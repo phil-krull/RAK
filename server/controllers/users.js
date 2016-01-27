@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
-var User = mongoose.model('User');
+var User = mongoose.model('user');
 var bcrypt = require('bcrypt');
-// var act = mongoose.model('act');
+var act = mongoose.model('act');
 
 module.exports = {
 	login: function(req, res) {
@@ -42,9 +42,9 @@ module.exports = {
 		newUser.save(function(err, newUser){
 			if(err){
 				console.log(err);
-				res.json(err);
+				res.send(err);
 			} else{
-				res.json(true);
+				res.json(newUser);
 			}
 		})
 	},
