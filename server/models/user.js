@@ -15,8 +15,8 @@ var userSchema = new Schema({
 	email: { type: String, unique: true, required: true, match: /.+\@.+\..+/ },
 	password: {type: String, required: true},
 	friends: [{ type: Schema.Types.ObjectId, ref: 'Friends'}],
-	done: [{ type: Schema.Types.ObjectId, ref: 'Done'}],
-	pending: [{ type: Schema.Types.ObjectId, ref: 'Pending'}]
+	done: [{ type: Schema.Types.ObjectId, ref: 'Done', added_at: {type:Date, default: Date.now}}],
+	pending: [{ type: Schema.Types.ObjectId, ref: 'Pending', created_at: { type: Date, default: Date.now}}]
 });
 
 mongoose.model('User', userSchema);
