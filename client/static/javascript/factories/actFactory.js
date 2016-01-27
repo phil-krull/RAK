@@ -17,11 +17,12 @@ dak_app.factory('actFactory', function($http) {
 		loggedin = false;
 	}
 
-	factory.index = function() {
+	factory.index = function(callback) {
 		$http.get('/acts').success(function(output) {
 			console.log('Received from server getting acts')
 			console.log(output)
 			acts = output;
+			callback(acts);
 		})
 	}
 

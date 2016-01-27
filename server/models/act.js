@@ -4,8 +4,11 @@ var Schema = mongoose.Schema;
 var actsSchema = new Schema({
   name: String,
   users: [{name: Schema.Types.ObjectId}],
-  rating: [{rating: Number}],
-  completed_at: Date
+  user_ratings: [],
+  avg_rating: Number,
+  approval_rating: [],
+  avg_approval: Number,
+  approval: Boolean
 })
 
 mongoose.model('act', actsSchema);
