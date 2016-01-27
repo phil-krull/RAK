@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 // var validate = require('mongoose-validator');
 var validate_unique = require('mongoose-unique-validator');
 
+var mongoose
+
 var Schema = mongoose.Schema;
 
 var usersSchema = new Schema({
@@ -13,8 +15,13 @@ var usersSchema = new Schema({
 	email: { type: String, unique: true, required: true, match: /.+\@.+\..+/ },
 	password: {type: String, required: true},
 	friends: [{ type: Schema.Types.ObjectId, ref: 'Friends'}],
-	done: [{ type: Schema.Types.ObjectId, ref: 'Done', added_at: {type:Date, default: Date.now}}],
-	pending: [{ type: Schema.Types.ObjectId, ref: 'Pending', created_at: { type: Date, default: Date.now}}]
+	acts: [{
+		act_info: {type: Schema.Types.ObjectId, ref: 'Acts' },
+		created_at: Date,
+		updated_at: Date,
+		completed: Boolean
+	}]
+	
 });
 usersSchema.plugin(validate_unique, {message: 'Error, expected {PATH} to be unique.'});
 

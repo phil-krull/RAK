@@ -19,7 +19,7 @@ dak_app.controller('loginController', function(userFactory, $cookies, $location,
 				$cookies.put('userId', output._id);
 				$cookies.put('userName', output.name);
 				actFactory.login();
-				$location.path('/homepage');
+				$location.path('/userdashboard');
 			}
 		})
 
