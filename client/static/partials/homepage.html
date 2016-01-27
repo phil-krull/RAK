@@ -1,9 +1,23 @@
+
+<div id="sandwich menu">
 <a href="#/login">Login</a>
 <a href="#/register">Register</a>
+
+<div ng-if="homepageCtrl.loggedin">
+<a href="#/logout">Logout</a>
+<a href="#/userdashboard">Your Dashboard</a>
+<a href="#/friendsdashboard">Friends Dashboard</a>
+<a href="#/leadersdashboard">Leaders Dashboard</a>
+
+</div>
 
 
 <div>
   <form class="form" ng-submit="homepageCtrl.createDAK()">
     <p><button type="submit" ng-disabled="disabled">Submit</button>  <textarea rows="1" cols="100" placeholder="Submit a new DAK" name="name" ng-model="homepageCtrl.newDAK.name" required></textarea></p>
   </form>
+</div>
+
+<!-- <a href="#/userdashboa -->
+
 </div>

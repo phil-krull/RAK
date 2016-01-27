@@ -1,16 +1,27 @@
 dak_app.controller('homepageController', function($cookies, $location, userFactory, friendFactory, actFactory) {
 
-	users = [];
+	this.users = [];
 
-	var _this = this;
-	userFactory.index(function(data) {
-		console.log(data);
-		_this.users = data;
+	this.acts = [];
+
+	this.loggedin;
+
+	_this.loggedin
+	actFactory.loggedin(function(data) {
+		_this.loggedin = data;
 	})
 
-  this.createDAK = function() {
-    actFactory.create(this.newDAK);
-    this.newDAK = {};
-  }
+
+	actFactory.index(function(data) {
+		console.log(data);
+		_this.acts = data;
+	})
+
+	  this.createDAK = function() {
+	    actFactory.create(this.newDAK);
+	    this.newDAK = {};
+	  }
+
+
 
 })
