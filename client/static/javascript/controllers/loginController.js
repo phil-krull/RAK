@@ -3,7 +3,7 @@ dak_app.controller('loginController', function(userFactory, $cookies, $location)
 	this.error;
 
 	this.login = function() {
-		console.log(this.loginForm.username);
+		console.log(this.loginForm.email);
 		console.log(this.loginForm.password);
 
 

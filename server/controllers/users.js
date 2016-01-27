@@ -1,17 +1,44 @@
 var mongoose = require('mongoose');
 
 var User = mongoose.model('User');
-
+var bcrypt = require('bcrypt');
 // var act = mongoose.model('act');
 
 module.exports = {
+	login: function(req, res) {
+		console.log(req.body.email);
+		console.log(req.body.password);
+
+		User.findOne({email: req.body.email}, function(err, user) {
+
+			console.log(user);
+			console.log(user.password);
+
+			if (bcrypt.compareSync(req.body.password, user.password) === true) {
+				res.json(user);
+
+			} else {
+				res.json("wrong email or wrong password");
+			}
+
+		});	
+
+	},
 	create: function(req,res){
+
+		var salt = bcrypt.genSaltSync(10);
+		var hash = bcrypt.hashSync(req.body.password, salt);
+
+
 		var newUser = new User({
 			name: req.body.name,
 			alias: req.body.alias,
 			email: req.body.email,
-			password: req.body.password
+			password: hash
 		})
+
+
+
 		newUser.save(function(err, newUser){
 			if(err){
 				console.log(err);

@@ -21,6 +21,11 @@ module.exports = function(app) {
     Acts.index(req, res)
   })
 
+  app.post('/loginuser', function(req, res) {
+  
+    Users.login(req, res);
+  })
+
   app.post('/acts', function(req, res) {
     Acts.create(req, res)
   })
