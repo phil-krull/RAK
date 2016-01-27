@@ -18,9 +18,9 @@
     "url": "https://github.com/phil-krull/RAK/issues"
   },
   "homepage": "https://github.com/phil-krull/RAK#readme",
-
   "dependencies": {
     "body-parser": "^1.14.2",
+    "cron": "^1.1.0",
     "express": "^4.13.4",
     "mongoose": "^4.3.7"
   }

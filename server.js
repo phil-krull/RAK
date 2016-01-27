@@ -13,6 +13,8 @@ require('./server/config/mongoose.js');
 
 require('./server/config/routes.js')(app);
 
+require('./server/config/cron.js');
+
 app.listen(8888, function() {
   console.log('listening on port 8888........')
 })
