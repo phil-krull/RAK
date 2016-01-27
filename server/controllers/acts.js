@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var Acts = mongoose.model('act');
-var Users = mongoose.model('User');
+var User = mongoose.model('user');
 
 
 module.exports = {

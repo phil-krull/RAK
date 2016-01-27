@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
-var User = mongoose.model('User');
+var User = mongoose.model('user');
 var bcrypt = require('bcrypt');
-// var act = mongoose.model('act');
+var act = mongoose.model('act');
 
 module.exports = {
 	login: function(req, res) {
