@@ -1,6 +1,14 @@
 <div class="col-md-4">
   <h1>Register</h2>
-  <div ng-show="registerCtrl.error" class="alert alert-danger"></div>
+  <div ng-if="registerCtrl.errors">
+    <ul>
+      <li ng-repeat="err in registerCtrl.errors">
+        <span ng-bind="err"></span>
+      </li>
+    
+    </ul>
+  </div>
+ 
   <form class="form" ng-submit="registerCtrl.register()">
     <div class="form-group">
       <label>Name</label>

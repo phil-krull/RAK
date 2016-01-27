@@ -13,6 +13,7 @@ dak_app.config(function ($routeProvider) {
       controllerAs: 'loginCtrl'
     })
     .when('/logout', {
+      templateUrl: './partials/logout.html',
       controller: 'logoutController',
       controllerAs: 'logoutCtrl'
     })

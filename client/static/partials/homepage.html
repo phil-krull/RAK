@@ -1,8 +1,10 @@
 
 <div id="sandwich menu">
+
+<div ng-hide="homepageCtrl.loggedin">
 <a href="#/login">Login</a>
 <a href="#/register">Register</a>
-
+</div>
 <div ng-if="homepageCtrl.loggedin">
 <a href="#/logout">Logout</a>
 <a href="#/userdashboard">Your Dashboard</a>
