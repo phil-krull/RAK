@@ -13,11 +13,20 @@ dak_app.factory('friendFactory', function($http) {
 
 
 	factory.create = function(info) {
+		// attach friendID and userID
 		$http.post('friends/', info).success(function(output) {
 			console.log('Received from server create friend');
 			console.log(output);
 		})
 
+	}
+
+	factory.destroy = function(user, info) {
+		$http.delete('friends/'+user, info).success(function(output) {
+			console.log('Received from server delete friend');
+			console.log(output);
+			
+		})
 	}
 
 	return factory;

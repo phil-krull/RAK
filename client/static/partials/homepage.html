@@ -2,3 +2,8 @@
 <a href="#/register">Register</a>
 
 
+<div>
+  <form class="form" ng-submit="homepageCtrl.createDAK()">
+    <p><button type="submit" ng-disabled="disabled">Submit</button>  <textarea rows="1" cols="100" placeholder="Submit a new DAK" name="name" ng-model="homepageCtrl.newDAK.name" required></textarea></p>
+  </form>
+</div>

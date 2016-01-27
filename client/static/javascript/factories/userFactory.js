@@ -14,7 +14,8 @@ dak_app.factory('userFactory', function($http) {
 
 
 	factory.login = function(info, callback) {
-		$http.post('/login', info).success(function(output) {
+
+		$http.post('/loginuser', info).success(function(output) {
 			console.log('Received from server login user');
 			console.log(output);
 			callback(output);
