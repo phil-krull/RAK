@@ -36,6 +36,16 @@ dak_app.config(function ($routeProvider) {
       controller: 'leaderdashboardController',
       controllerAs: 'leaderdashboardCtrl'
     })
+    .when("/contact_us", {
+      templateUrl: "./partials/contact_us.html",
+      controller: 'homepageController',
+      controllerAs: 'homepageCtrl'
+    })
+    .when('/orig_homepage', {
+      templateUrl: './partials/orig_homepage.html',
+      controller: 'homepageController',
+      controllerAs: 'homepageCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     })
