@@ -49,7 +49,7 @@ module.exports = {
 		})
 	},
 	update: function(req,res){
-		User.findOne({_idL req.params.id}, function(err, users{
+		User.findOne({_id: req.params.id}, function(err, users){
 			user.acts.completed = req.body.acts.completed;
 			user.save(function(err, user){
 				if(err){
