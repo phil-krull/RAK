@@ -48,6 +48,19 @@ module.exports = {
 			}
 		})
 	},
+	update: function(req,res){
+		User.findOne({_idL req.params.id}, function(err, users{
+			user.acts.completed = req.body.acts.completed;
+			user.save(function(err, user){
+				if(err){
+					res.send(err);
+				} else {
+					res.json(user);
+				}
+			})
+		})
+	},
+
 	addFriend: function(req,res){
 		User.findOne({_id: req.params.id}, function(err, user){
 			console.log(user);
@@ -71,6 +84,7 @@ module.exports = {
 			}
 		})
 	},
+
 
 	// addAct: function (req,res){
 	// 	User.findOne({_id: req.body.userID}, function (err, act){
