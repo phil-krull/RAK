@@ -3,6 +3,19 @@ dak_app.factory('actFactory', function($http) {
 
 	acts = [];
 
+	var loggedin = false;
+
+	factory.loggedin = function(callback) {
+		callback(loggedin)
+	}
+
+	factory.login = function() {
+		loggedin = true;
+	}
+
+	factory.logout = function() {
+		loggedin = false;
+	}
 
 	factory.index = function() {
 		$http.get('/acts').success(function(output) {
