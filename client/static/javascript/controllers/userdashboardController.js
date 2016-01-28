@@ -31,7 +31,9 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		userFactory.addAct(addedAct)
 
 
-	}		
+	}
+
+			
 
 
 })
