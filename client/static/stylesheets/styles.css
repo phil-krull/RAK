@@ -4,7 +4,7 @@
 }
 
 body {
-	background: no-repeat url("/images/grouphug.jpg");
+	background: no-repeat url("/images/hug1.jpg");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
@@ -21,13 +21,10 @@ body {
 .glyphicon {
     font-size: 40px;
     color: rgba(29,150,29,0.7);
+    text-decoration: none;
 }
 
-.glyphicon a {
-	text-decoration: none;
-}
-
-.glyphicon a:hover {
+a, a:hover {
 	text-decoration: none;
 }
 
@@ -39,7 +36,6 @@ body {
 
 .main {
 	background: rgba(0,0,0,0.8);
-	float: left;
 	height: 70%;
 	width: 25%;
 	padding: 1.5%;
