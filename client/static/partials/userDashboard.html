@@ -28,30 +28,30 @@
 </style>
 	<h1><span ng-bind="userdashboardCtrl.userName"></span>'s User Dashboard</h1>
 
-		<a href="#/userdashboard">Your Dashboard</a> |
-		<a href="#/frienddashboard">Friends Dashboard</a> |
-		<a href="#/leaderdashboard">Leaders Dashboard</a>
 
-	<div ng-if="homepageCtrl.reachedDAKlimit">
-		<span ng-bind="homepageCtrl.reachedDAKlimit"></span>
-	</div>
-	<div ng-if="homepageCtrl.generatedDAK">
-		<span ng-bind="homepageCtrl.generatedDAK"></span>
-	</div>
+  <button ng-click="userdashboardCtrl.generateDAK()">Generate DAK</button>
+  <div ng-show="userdashboardCtrl.generatedDAK">
+  <span ng-bind="userdashboardCtrl.generatedDAK.name"></span>
+  </div>
 
-<ul>
-  <li ng-repeat="act in userdashboardCtrl.pending">
-    <span ng-bind="act.name"></span>
-  </li>
-</ul>  
+	<table id='friends'>
+      Search Your Friends: <input type="text" ng-model="yourfriendFilter">
+      <tr>
+        <th>Name</th>
+        <th>Pending DAK's</th>
+        <th>Done DAK's</th>
+        <th>Remove Friend</th>
+      </tr>
+      <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
+        <td><span ng-bind="friend.name"></span></td>
+        <td><span ng-bind="friend.pending"></span></td>
+        <td><span ng-bind="friend.done"></span></td>
+        <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Remove"></td>
+      </tr>
+    </table>
 
-<ul>
-  <li ng-repeat="act in userdashboardCtrl.done">
-    <span ng-bind="act.name"></span>
-  </li>
-</ul>
 
-
+  
 
 
 
