@@ -91,7 +91,9 @@ module.exports = {
 		})
 	},
 	show: function(req,res){
-		User.findOne({_id: req.params.id}, function(err, user){
+		User.findOne({_id: req.params.id}).deepPopulate('friends')
+
+		.exec(function(err, user) {
 			if(err){
 				res.json(err);
 			} else {

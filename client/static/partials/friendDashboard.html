@@ -1,4 +1,5 @@
 <div>
+<<<<<<< HEAD
 <style>
     * {
         color: white;
@@ -36,6 +37,26 @@
     #searchFriends, #users{
         padding: 5%;
     }
+=======
+  <table>
+  Search Your Friends: <input type="text" ng-model="yourFriendFilter">
+  <tr>
+    <th>Name</th>
+    <th>Pending DAK's</th>
+    <th>Done DAK's</th>
+    <th>Remove Friend</th>
+  </tr>
+    <tbody>
+  <tr ng-repeat="friend in frienddashboardCtrl.user.friends | filter:yourFriendFilter">
+    <td><span ng-bind="friend.name"></span></td>
+    <td><span ng-bind="friend.pending"></span></td>
+    <td><span ng-bind="friend.done"></span></td>
+    <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Remove"></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+>>>>>>> 9297aeebdf462a6bc6a9cb66472c55c63feb93a6
 
 </style>
     <div class='friendDashboardContainer'>
@@ -64,6 +85,7 @@
 
 
 
+<<<<<<< HEAD
         <div id='users'>
           <table>
 
@@ -83,4 +105,22 @@
           </table>
         </div>
     </div>
+=======
+  Search users: <input type="text" ng-model="newfriendFilter">
+    <tr>
+      <th>Name</th>
+      <th>Pending DAK's</th>
+      <th>Done DAK's</th>
+      <th>Add Friend</th>
+    </tr>
+    <tr ng-repeat="user in frienddashboardCtrl.users | filter:newfriendFilter" | ng-if ="user._id != frienddashboardCtrl.userId">
+      <td><span ng-bind="user.name"></span></td>
+      <td><span ng-bind="user.pending"></span></td>
+      <td><span ng-bind="user.done"></span></td>
+    
+      <td><input type="submit" ng-click="frienddashboardCtrl.addFriend(user)" value="Add"></td>
+    
+    </tr>
+  </table>
+>>>>>>> 9297aeebdf462a6bc6a9cb66472c55c63feb93a6
 </div>
