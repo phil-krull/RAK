@@ -18,7 +18,7 @@ var usersSchema = new Schema({
 	friends: [{ type: Schema.Types.ObjectId, ref: 'user'}],
 	acts: [{
 
-		act_info: {type: Schema.Types.ObjectId, ref: 'Acts' },
+		act_info: {type: Schema.Types.ObjectId, ref: 'act' },
 
 
 		completed: Boolean
