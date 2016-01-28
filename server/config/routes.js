@@ -41,6 +41,10 @@ module.exports = function(app) {
     Acts.create(req, res)
   })
 
+  app.get('/users/:id', function(req, res) {
+    Users.show(req,res);
+  })
+
   app.post('/acts/:id', function(req, res) {
     Acts.update(req, res)
   })
