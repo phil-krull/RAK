@@ -15,12 +15,12 @@
 	<script src="./source/angular-cookies.js"></script>
 	
 	<script src="./javascript/main.js"></script>
-
+	
 	<script src="./javascript/controllers/homepageController.js"></script>
 	<script src="./javascript/controllers/loginController.js"></script>
 	<script src="./javascript/controllers/logoutController.js"></script>
 	<script src="./javascript/controllers/registerController.js"></script>
-	<script src="./javascript/controllers/friendController.js"></script>
+	
 	<script src="./javascript/controllers/userdashboardController.js"></script>
 	<script src="./javascript/controllers/frienddashboardController.js"></script>
 	<script src="./javascript/controllers/leaderdashboardController.js"></script>
@@ -31,9 +31,9 @@
 
 
 </head>
-<body>
+<body ng-controller="homepageController as homepageCtrl">
 	<div id="header">
-		<div ng-if="homepageCtrl.loggedin">
+		<div ng-show="homepageCtrl.loggedin()">
 			<a href="#/logout">Logout</a>
 		</div>
 		<a href="#/login">
@@ -45,8 +45,8 @@
 			<tr>
 				<td>
 					<div class="input-group col-sm-4">
-						<input type="text" class="form-control" placeholder="Submit An Act of Kindness">
-						<span class="input-group-addon">Submit</span>
+						<input type="text" class="form-control" placeholder="Submit An Act of Kindness" ng-model="homepageCtrl.newDAK.name">
+						<input type="submit" ng-click="homepageCtrl.createDAK()" class="input-group-addon">Submit</span>
 					</div>
 				</td>
 				<td><a href="#/register">Register</a></td>
