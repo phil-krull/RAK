@@ -38,7 +38,23 @@
 	<div ng-if="homepageCtrl.generatedDAK">
 		<span ng-bind="homepageCtrl.generatedDAK"></span>
 	</div>
-  <h1>hello</h1>
+
+<ul>
+  <li ng-repeat="act in userdashboardCtrl.pending">
+    <span ng-bind="act.name"></span>
+  </li>
+</ul>  
+
+<ul>
+  <li ng-repeat="act in userdashboardCtrl.done">
+    <span ng-bind="act.name"></span>
+  </li>
+</ul>
+
+
+
+
+
 </div>
 
 
