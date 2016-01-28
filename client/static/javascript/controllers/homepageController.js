@@ -12,6 +12,9 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	// 	console.log('Logged in?' + data)
 	// })
 
+	if ( $cookies.get('userId')) {
+		this.userId = $cookies.get('userId');
+	}
 
 	actFactory.index(function(data) {
 		console.log(data);
@@ -22,6 +25,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	  	console.log(this.newDAK);
 
 	    actFactory.create(this.newDAK, function() {
+
 
 	    	actFactory.index(function(data) {
 	    		_this.acts = data;
@@ -40,12 +44,13 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 
 	this.generateDAK = function() {
 		console.log('generateDAK function is running')
-		if(doNotGenerateDAK == false) {
 
-				if(this.loggedin() == false) {
-				console.log("this if statement is running")
-				this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
-				if(this.DAKlimit <  2) {
+		if(this.loggedin() === false) {
+
+			if(doNotGenerateDAK === false) {
+				console.log('this if statement is running');
+				if(this.DAKlimit < 2) {
+					this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 					this.DAKlimit++;
 				} else if (this.DAKlimit == 2) {
 					this.reachedDAKlimit = 'You have reached the limit of generating new DAKS'
@@ -53,21 +58,22 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 					console.log(doNotGenerateDAK);
 					console.log(this.reachedDAKlimit);
 				} else {
-					this.DAKlimit = 1; 
+					this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+					this.DAKlimit = 1;
 				}
-				
-			} else {
-				this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 			}
-			console.log(this.generatedDAK)
-			console.log(this.DAKlimit);
+		} else if(this.loggedin() === true) {
 
+			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+			console.log(this.generatedDAK);
 
-		} else {
-			this.reachedDAKlimit = 'You have reached the limit of generating new DAKS'
-			console.log(doNotGenerateDAK);
-			console.log(this.reachedDAKlimit);
-		}
+			var addedAct = {};
+			addedAct.userID = this.userId;
+			addedAct.actID = this.generatedDAK._id
+
+			userFactory.addAct(addedAct)
+
+		}		
 		
 		
 	}
