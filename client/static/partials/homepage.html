@@ -8,15 +8,20 @@
 		<h2>Where <span id="blue">Others</span></h2>
 		<h2><span id="blue">Come First</span></h2><br>
 		<button ng-click="homepageCtrl.generateDAK()">Get My Daily Act of Kindness</button> 
-	</div>
-
 	
-<div ng-if="homepageCtrl.reachedDAKlimit">
+	
+<div ng-show="homepageCtrl.reachedDAKlimit">
 <span ng-bind="homepageCtrl.reachedDAKlimit"></span>
 </div>
 
-<div ng-if="homepageCtrl.generatedDAK">
-<span ng-bind="homepageCtrl.generatedDAK"></span>
+<div ng-show="homepageCtrl.generatedDAK">
+Your Daily Act of Kindess: <span ng-bind="homepageCtrl.generatedDAK.name" style="color: white"></span>
 </div>	
 	
 </div>
+
+
+
+
+	</div>
+
