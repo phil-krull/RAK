@@ -1,50 +1,53 @@
-<div>
-	<style>
-		.contactContainer {
-			background: rgba(0,0,0,0.8);
-			border-top-right-radius: 20px;
-			border-bottom-left-radius: 20px;
-			border: solid 10px rgba(29,150,29,0.7);
-			width: 100%;
-			height: 100%;
-			padding: 5% 10%;
-			text-align: center;
-			font-size: 18px;
-			color: white;
+<div class="contactContainer">
+<style>
+    .contactContainer {
+      background: rgba(0,0,0,0.8);
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border: solid 10px rgba(29,150,29,0.7);
+      width: 100%;
+      height: 100%;
+      font-size: 18px;
+      color: white;
+      text-align: left;
+      color: rgba(51, 204, 255, 0.7);
+    }
 
-		}
+    .col-md-4 {
+      float: center;
+    }
 
-		form {
-			text-align: left;
-		}
+    button {
+      background: rgba(29,150,29,0.8);
+      font-size: 20px;
+      padding: 1% 2%;
+      color: white;
+      font-weight: bold;
+    }
 
-		p {
-			margin: 1.5%;
-		}
+    button:hover {
+      background: rgba(51, 204, 255, 0.7);
+    }
 
-		button {
-			background: rgba(29,150,29,0.8);
-			font-size: 20px;
-			padding: 1% 2%;
-			color: white;
-			font-weight: bold;
-		}
+    h1 {
+      margin-top: 10%;
+      text-align: center;
+      color: rgba(51, 204, 255, 0.7);
+    }
 
-		button:hover {
-			background: rgba(51, 204, 255, 0.7);
-		}
-
-	</style>
-	<div class="contactContainer">	
-		<form>
-			<p>First Name: <input type="text"  size="50" ng-model='homepageCtrl.newFeedback.first_name'></p>
-			<p>Last Name: <input type="text"  size="50" ng-model='homepageCtrl.newFeedback.last_name'></p>
-			<p>Email: <input type="text"  size="50" ng-model='homepageCtrl.newFeedback.email'></p>
-			<p>Comment/Concern:</p>
-			<textarea rows="7" cols="63" ng-model='homepageCtrl.newFeedback.comment'></textarea><br><br>
-			<button ng-click='homepageCtrl.sendFeedback()'>Submit</button>
+</style>
+	<div class="col-md-4 col-md-offset-4">
+		<h1>Contact Us</h1>
+		<form class="form">
+			<label>First Name:</label>
+			<input type="text" class="form-control" name="first_name" ng-model='homepageCtrl.newFeedback.first_name'>
+			<label>Last Name:</label>
+			<input type="text" class="form-control" name="last_name" ng-model='homepageCtrl.newFeedback.last_name'>
+			<label>Email:</label>
+			<input type="text" class="form-control" name="email" ng-model='homepageCtrl.newFeedback.email'>
+			<label>Comment/Concern:</label>
+			<textarea class="form-control" name="comment" ng-model='homepageCtrl.newFeedback.comment'></textarea>
+			<button type="submit"  class="btn btn-default" ng-click='homepageCtrl.sendFeedback()'>Submit</button>
 		</form>
-
-
 	</div>
 </div>
