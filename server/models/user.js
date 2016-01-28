@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var validate_unique = require('mongoose-unique-validator');
 var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
-var mongoose
+
 
 var Schema = mongoose.Schema;
 
@@ -17,9 +17,10 @@ var usersSchema = new Schema({
 	password: {type: String, required: true},
 	friends: [{ type: Schema.Types.ObjectId, ref: 'user'}],
 	acts: [{
-		act_info: {type: Schema.Types.ObjectId, ref: 'act' },
-		created_at: Date,
-		updated_at: Date,
+
+		act_info: {type: Schema.Types.ObjectId, ref: 'Acts' },
+
+
 		completed: Boolean
 	}]
 	

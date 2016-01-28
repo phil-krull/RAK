@@ -9,6 +9,7 @@ var actsSchema = new Schema({
   approval_rating: [],
   avg_approval: Number,
   approval: Boolean
+
 })
 
 mongoose.model('act', actsSchema);
