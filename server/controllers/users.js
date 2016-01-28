@@ -103,7 +103,7 @@ module.exports = {
 	},
 	addAct: function(req,res){
 		User.findOne({_id: req.body.userID}), function(err, user){
-			user.acts[user.acts.length].act_info = actID;
+			user.acts[user.acts.length].act_info = req.body.actID;
 			user.save(function(err,User){
 				if(err){
 					res.send(err);
