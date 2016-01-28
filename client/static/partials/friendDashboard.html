@@ -113,7 +113,7 @@
       <th>Done DAK's</th>
       <th>Add Friend</th>
     </tr>
-    <tr ng-repeat="user in frienddashboardCtrl.users | filter:newfriendFilter" | ng-if ="user._id != frienddashboardCtrl.userId">
+    <tr ng-repeat="user in frienddashboardCtrl.users  | filter:newfriendFilter" | ng-if ="user._id != frienddashboardCtrl.userId">
       <td><span ng-bind="user.name"></span></td>
       <td><span ng-bind="user.pending"></span></td>
       <td><span ng-bind="user.done"></span></td>

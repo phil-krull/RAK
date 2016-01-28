@@ -49,10 +49,8 @@ module.exports = function(app) {
     Users.show(req,res);
   })
 
-  app.post('/acts/:id', function(req, res) {
+  app.patch('/acts/:id', function(req, res) {
     Acts.update(req, res)
   })
-
-  
 
 }

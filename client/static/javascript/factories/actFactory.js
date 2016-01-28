@@ -1,16 +1,23 @@
 dak_app.factory('actFactory', function($http) {
-	factory = {};
+	var factory = {};
 
 	acts = [];
 
-	var loggedin = false;
+	// var loggedin = false;
 
-	factory.loggedin = function(callback) {
-		callback(loggedin)
+	loggedin = false;
+
+	factory.loggedin = function() {
+		
+		return loggedin;
 	}
 
+
 	factory.login = function() {
+		// factory.loggedin = true;
+		
 		loggedin = true;
+		// angular.copy(true, factory.loggedin);
 	}
 
 	factory.logout = function() {

@@ -1,5 +1,6 @@
 
 
+
 <div>
 
 	<div class="main">
@@ -8,5 +9,14 @@
 		<h2><span id="blue">Come First</span></h2><br>
 		<button ng-click="homepageCtrl.generateDAK()">Get My Daily Act of Kindness</button> 
 	</div>
+
+	
+<div ng-if="homepageCtrl.reachedDAKlimit">
+<span ng-bind="homepageCtrl.reachedDAKlimit"></span>
+</div>
+
+<div ng-if="homepageCtrl.generatedDAK">
+<span ng-bind="homepageCtrl.generatedDAK"></span>
+</div>	
 	
 </div>

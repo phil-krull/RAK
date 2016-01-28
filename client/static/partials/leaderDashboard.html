@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="./../stylesheets/leaderDashboardStyles.css">
 
 <div>
+<<<<<<< HEAD
  
     <div class='leaderboardContainer'>
       <a href="#/userdashboard">Home</a> |
@@ -34,4 +35,35 @@
 
     </div>
 
+=======
+  <a href="#/userdashboard">Your Dashboard</a> | 
+  <a href="#/frienddashboard">Friends Dashboard</a> | 
+  <a href="#/leaderdashboard">Leaders Dashboard</a>
+  <h2>Members Leaderboard</h2>
+    <table border="1">
+      <tr>
+        <th>Member Name:</th>
+        <th># of completed DAK's: </th>
+        <th>Member rating: </th>
+      </tr>
+      <tr ng-repeat="user in leaderdashboardCtrl.users">
+        <td ng-bind="user.name"></td>
+        <td ng-bind="user.acts"></td>
+        <td ng-bind="user.rating"></td>
+      </tr>
+    </table>
+  <h2>DAKs Leaderboard</h2>
+    <table border="1">
+      <tr>
+        <th>ACT Name:</th>
+        <th>Times completed: </th>
+        <th>ACT rating: </th>
+      </tr>
+      <tr ng-repeat="act in leaderdashboardCtrl.acts">
+        <td ng-bind="act.name"></td>
+        <td ng-bind="act.user_ratings.length"></td>
+        <td ng-bind="act.avg_rating"></td>
+      </tr>
+    </table>
+>>>>>>> 2398714a9e67d90532339547433585158402942b
 </div>
