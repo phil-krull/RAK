@@ -101,13 +101,37 @@ module.exports = {
 			}
 		})
 	},
+	addAct: function(req,res){
+		User.findOne({_id: req.params.id}), function(err, user){
+			user.acts.push(req.body.actID);
+			user.save(function(err,User){
+				if(err){
+					res.send(err);
+				} else {
+					res.json(User)
+				}
+			})
+		}
+	},
+	addComplete: function(req,res){
+		User.findOne({_id: req.params.id}), function(err, acts){
+			acts.findOne({act_info: req.body.actID}, function (err, user){
+				user.acts.completed = true;
+				user.save(function(err, user){
+					if(err){
+						res.send(err);
+					} else {
+						res.json(user);
+					}
+				})
+			})
+		}
+	},
 
 
-	// addCompleted: function(req,res){
-	// 	User.findOne({_id: req.body.userID}, function(err, act){
 
-	// 	})
-	// },
+
+	
 	index: function(req,res){
 		User.find({}, function(err, users){
 			if(err){

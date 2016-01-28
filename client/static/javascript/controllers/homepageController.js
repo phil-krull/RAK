@@ -83,4 +83,29 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 		_this.newFeedback = {};
 	}
 
+	// this.showPopUp = function () {
+
+	// }
+
+	// this.hidePopUp = function() {
+		
+	// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
