@@ -1,14 +1,15 @@
 <html ng-app="dak_app">
 	<head>
 	<title>Daily Acts of Kindness</title>
-	<!-- ==============BootStrap================= -->
-	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-	<script src="./angular-bootstrap/ui-bootstrap-tpls.js"></script>
-	<!-- ================stylesheet/css=============== -->
-	<link rel="stylesheet" href="./stylesheets/styles.css">
 	<script src="./source/angular.js"></script>
 	<script src="./source/angular_routes.js"></script>
 	<script src="./source/angular-cookies.js"></script>
+	<!-- ==============BootStrap================= -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <script src="./angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<!-- ================stylesheet/css=============== -->
+	<link rel="stylesheet" href="./stylesheets/styles.css">
+	
 	
 	<script src="./javascript/main.js"></script>
 	
@@ -60,6 +61,9 @@
 
 					</div>
 				</form>
+					<div ng-show="homepageCtrl.actSubmittedMessage">
+					<span ng-bind="homepageCtrl.actSubmittedMessage"></span>
+					</div>
 				</td>
 				<td><a href="#/register">Register</a></td>
 				<td><a href="#/contact_us">Contact Us</a></td>

@@ -34,12 +34,13 @@ dak_app.factory('actFactory', function($http) {
 	}
 
 
-	factory.create = function(info)  {
+	factory.create = function(info, callback)  {
 
 		$http.post('/acts', info).success(function(output) {
 			console.log('Received from server create act');
 			console.log(info);
 			console.log(output);
+			callback(acts);
 		})
 
 	}
