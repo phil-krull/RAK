@@ -1,4 +1,4 @@
-dak_app.controller('homepageController', function($cookies, $location, userFactory, friendFactory, actFactory) {
+dak_app.controller('homepageController', function($cookies, $location, userFactory, friendFactory, actFactory, feedbackFactory) {
 
 	this.users = [];
 
@@ -40,6 +40,11 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 		} else {
 			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 		}
+	}
+
+	this.sendFeedback = function(){
+		feedbackFactory.create(_this.newFeedback);
+		_this.newFeedback = {};
 	}
 
 })

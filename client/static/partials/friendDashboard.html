@@ -2,19 +2,21 @@
 
 <div>
   <table>
-  Search Your Friends: <input type="text" ng-model="yourfriendFilter">
+  Search Your Friends: <input type="text" ng-model="yourFriendFilter">
   <tr>
     <th>Name</th>
     <th>Pending DAK's</th>
     <th>Done DAK's</th>
     <th>Remove Friend</th>
   </tr>
-  <tr ng-repeat="friend in frienddashboardCtrl.friends | filter:yourFriendFilter">
+    <tbody>
+  <tr ng-repeat="friend in frienddashboardCtrl.user.friends | filter:yourFriendFilter">
     <td><span ng-bind="friend.name"></span></td>
     <td><span ng-bind="friend.pending"></span></td>
     <td><span ng-bind="friend.done"></span></td>
-    <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Action"></td>
+    <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Remove"></td>
   </tr>
+  </tbody>
 </table>
 </div>
 
@@ -30,11 +32,13 @@
       <th>Done DAK's</th>
       <th>Add Friend</th>
     </tr>
-    <tr ng-repeat="friend in frienddashboardCtrl.users | filter:friendFilter">
-      <td><span ng-bind="friend.name"></span></td>
-      <td><span ng-bind="friend.pending"></span></td>
-      <td><span ng-bind="friend.done"></span></td>
-      <td><input type="submit" ng-click="frienddashboardCtrl.addFriend(friend)" value="Action"></td>
+    <tr ng-repeat="user in frienddashboardCtrl.users | filter:newfriendFilter" | ng-if ="user._id != frienddashboardCtrl.userId">
+      <td><span ng-bind="user.name"></span></td>
+      <td><span ng-bind="user.pending"></span></td>
+      <td><span ng-bind="user.done"></span></td>
+    
+      <td><input type="submit" ng-click="frienddashboardCtrl.addFriend(user)" value="Add"></td>
+    
     </tr>
   </table>
 </div>
