@@ -76,6 +76,20 @@ module.exports = {
 			})
 		})
 	},
+	destroy: function(req,res){
+		User.findOne({_id: req.params.id}, function(err, user){
+			console.log(user);
+			user.friends.splice(req.body.friendID);
+			user.save(function(err, user){
+				if(err){
+					res.send(err);
+				} else {
+					res.json(user);
+				}
+			})
+
+		})
+	},
 	show: function(req,res){
 		User.findOne({_id: req.params.id}, function(err, user){
 			if(err){

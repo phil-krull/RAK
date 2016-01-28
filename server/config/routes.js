@@ -14,7 +14,11 @@ var Feedback = require('./../controllers/feedbacks.js');
 
 
 
+
+
 module.exports = function(app) {
+
+  app.delete('/friends/:id', Users.destroy)
 
   app.post('/feedback', Feedback.create)
 

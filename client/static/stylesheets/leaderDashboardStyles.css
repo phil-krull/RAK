@@ -1,0 +1,39 @@
+.leaderboardContainer {
+    background: rgba(0,0,0,0.8);
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: solid 10px rgba(29,150,29,0.7);
+    width: 100%;
+    height: 100%;
+    padding: 5% 10%;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+th {
+    text-align: center;
+}
+
+tr {
+    height: 20px;
+}
+
+.steelblue{
+    background-color: rgba(49,122,183, 0.7);
+    
+}
+
+.forrestgreen{
+    
+    background-color: rgba(29,114,29,0.7);
+}
+
+.table{
+    color: white;
+}
+
+.centered{
+    text-align: center;
+}
+ 
