@@ -9,6 +9,7 @@
     text-align: center;
     font-size: 18px;
     color: white;
+    overflow: scroll;
 }
 
 th {
@@ -31,6 +32,7 @@ tr {
 
 .table{
     color: white;
+    overflow: scroll;
 }
 
 .centered{
