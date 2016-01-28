@@ -38,4 +38,8 @@ module.exports = function(app) {
     Acts.update(req, res)
   })
 
+  app.patch('/acts/:id', function(req, res) {
+    Acts.update(req, res)
+  })
+
 }

@@ -20,6 +20,7 @@ module.exports = {
 
     create: function(req, res) {
       var new_act = new Acts(req.body);
+      new_act.approval = true;
       new_act.save(function(errors, act) {
         if(errors) {
           res.send(errors)
@@ -30,15 +31,30 @@ module.exports = {
     },
 
     update: function(req, res) {
-      User.findOne({_id: req.params.id}, function(errors, user) {
-        user.pending.push(req.body.actId);
-        user.save(function(errors) {
-          if(errors) {
-            res.send(errors)
-          } else {
-            res.json(true)
+        Acts.findByIdAndUpdate(req.params.id, {$push:{users: req.body.userId, user_ratings: req.body.user_ratings, approval_rating: req.body.approval_rating}}, function(errors, currentact) {
+          var user_rating = 0;
+          var approval = 0;
+
+          for(var i = 0; i < currentact.user_ratings.length; i++) {
+            user_rating += currentact.user_ratings[i];
           }
-        })
+          currentact.avg_rating = Math.floor(user_rating/currentact.user_ratings.length);
+
+          for(var i = 0; i < currentact.approval_rating.length; i++) {
+            approval += currentact.approval_rating[i];
+          }
+          currentact.avg_approval = (approval/currentact.approval_rating.length);
+
+          if(currentact.avg_approval < 0.3 && currentact.approval_rating.length > 50) {
+            currentact.approval = false;
+          }
+            currentact.save();
+
+        if(errors) {
+          res.send(errors)
+        } else {
+          res.json(true)
+        }
       })
     }
 
