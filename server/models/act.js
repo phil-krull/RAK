@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var deepPopulate = require('mongoose-deep-populate')(mongoose)
 
 var actsSchema = new Schema({
   name: String,
@@ -12,4 +13,7 @@ var actsSchema = new Schema({
 
 })
 
+
 mongoose.model('act', actsSchema);
+
+actsSchema.plugin(deepPopulate)

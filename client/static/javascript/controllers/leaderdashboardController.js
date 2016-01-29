@@ -16,7 +16,7 @@ dak_app.controller('leaderdashboardController', function(actFactory, userFactory
 
        for(z = 0; z < users.length; z++) {
 
-          if(users[z].acts > 0) {
+          if(users[z].acts != 0) {
             var ratings = [];
             var total = 0;
 

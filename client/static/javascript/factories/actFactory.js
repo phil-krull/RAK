@@ -59,6 +59,14 @@ dak_app.factory('actFactory', function($http, userFactory, $cookies) {
 		})
 	}
 
+	factory.show = function(act, callback) {
+		$http.get('/acts/'+act).success(function(output) {
+			console.log('Received from server get act');
+			console.log(output)
+			callback(output)
+		})
+
+	}
 
 	return factory;
 })

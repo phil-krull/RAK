@@ -59,4 +59,9 @@ module.exports = function(app) {
     Users.show(req, res);
   })
 
+  app.get('/acts/:id', function(req, res) {
+    Acts.show(req, res);
+  })
+
+
 }

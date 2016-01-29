@@ -46,7 +46,7 @@
         <th>Remove Friend</th>
       </tr>
       <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
-        <td><span ng-bind="friend.name"></span></td>
+        <td><a href="#/user/{{friend._id}}"<span ng-bind="friend.name"></span></a></td>
         <td><span ng-bind="friend.pending"></span></td>
         <td><span ng-bind="friend.done"></span></td>
         <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Remove"></td>
@@ -55,7 +55,7 @@
 
     <h3>Your Pending Acts</h3>
   <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != true">
-    <span ng-bind="act.act_info.name"></span>
+    <a href="#/act/{{act.act_info._id}}"<span ng-bind="act.act_info.name"></span></a>
 
 
     <button ng-click="showcomplete=true">Complete</button>
@@ -91,7 +91,7 @@
 <hr>
   <h3>Your Completed Acts</h3>
   <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != false">
-    <span ng-bind="act.act_info.name"></span>
+    <a href="#/act/{{act.act_info._id}}"<span ng-bind="act.act_info.name"></span></a>
   </div>
 
 
