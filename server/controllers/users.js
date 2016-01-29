@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+ var mongoose = require('mongoose');
 
 var User = mongoose.model('user');
 var bcrypt = require('bcrypt');
@@ -103,6 +103,7 @@ module.exports = {
 		})
 	},
 	addAct: function(req,res){
+
 		console.log(req.body.userID)
 		console.log(req.body.actID)
 		
@@ -112,6 +113,7 @@ module.exports = {
 			console.log(user.acts)
 			// user.acts[user.acts.length].act_info = req.body.actID;
 			user.acts.push({act_info: req.body.actID, completed: false})
+
 			user.save(function(err,User){
 				if(err){
 					res.send(err);

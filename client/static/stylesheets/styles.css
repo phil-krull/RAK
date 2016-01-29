@@ -40,6 +40,11 @@ body {
 	right: 5%;
 	top: 1%;
 }
+#hover_result{
+	position: fixed;
+	right: 5%;
+	top: 2%;
+}
 
 .glyphicon {
     font-size: 40px;
@@ -65,6 +70,7 @@ a, a:hover {
 	height: 89%;
 	padding: 4%;
 }
+
 
 .mango {
 	background: rgba(0,0,0,0.7);
