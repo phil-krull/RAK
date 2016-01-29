@@ -57,6 +57,11 @@ dak_app.config(function ($routeProvider) {
       controller: 'showUserController',
       controllerAs: 'showuserCtrl'
     })
+    .when('/act/:actId', {
+      templateUrl: './partials/act.html',
+      controller: 'showActController',
+      controllerAs: 'showactCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     })

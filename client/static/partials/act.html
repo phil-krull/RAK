@@ -1,0 +1,19 @@
+<h1>Act: <span ng-bind="showactCtrl.act.name"></span></h1> 
+
+<h3>Approval Rating</h3>
+
+<h3>Average User Rating</h3>
+
+<h3>Users</h3>
+<table>
+<tr>
+	<th>Name</th>
+</tr>
+<tr ng-repeat="user in showactCtrl.act.users">
+	<td><span ng-bind="user.name"></span></td>
+
+
+</tr>
+
+</table>
+
