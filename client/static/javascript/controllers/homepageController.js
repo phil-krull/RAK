@@ -12,6 +12,9 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	// 	console.log('Logged in?' + data)
 	// })
 
+	if ( $cookies.get('userId')) {
+		this.userId = $cookies.get('userId');
+	}
 
 	actFactory.index(function(data) {
 		// console.log(data);
@@ -21,37 +24,88 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	  this.createDAK = function() {
 	  	// console.log(this.newDAK);
 
-	    actFactory.create(this.newDAK);
+	    actFactory.create(this.newDAK, function() {
+
+
+	    	actFactory.index(function(data) {
+	    		_this.acts = data;
+	    	})
+	    });
+
 	    this.newDAK = {};
 	  }
 
 	this.reachedDAKlimit;
 	this.DAKlimit;
 	this.generatedDAK;
+	var doNotGenerateDAK = false;
 
 	this.thisisworking = "this is working"
 
 	this.generateDAK = function() {
-		// console.log('generateDAK function is running')
-		if(!this.loggedin) {
-			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
-			if(this.DAKlimit == 1) {
-				this.DAKlimit++;
-			} else if (this.DAKlimit == 3) {
-				this.reachedDAKlimit = 'You have reached the limit of generating new DAKS'
-			} else {
-				this.DAKlimit = 1; 
+
+		console.log('generateDAK function is running')
+
+		if(this.loggedin() === false) {
+
+			if(doNotGenerateDAK === false) {
+				console.log('this if statement is running');
+				if(this.DAKlimit < 2) {
+					this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+					this.DAKlimit++;
+				} else if (this.DAKlimit == 2) {
+					this.reachedDAKlimit = 'You have reached the limit of generating new DAKS'
+					doNotGenerateDAK = true;
+					console.log(doNotGenerateDAK);
+					console.log(this.reachedDAKlimit);
+				} else {
+					this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+					this.DAKlimit = 1;
+				}
 			}
-			
-		} else {
+		} else if(this.loggedin() === true) {
+
 			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+
+			console.log(this.generatedDAK);
+
+			var addedAct = {};
+			addedAct.userID = this.userId;
+			addedAct.actID = this.generatedDAK._id
+
+			userFactory.addAct(addedAct)
+
 		}
-		// console.log(this.generatedDAK)
 	}
 
 	this.sendFeedback = function(){
 		feedbackFactory.create(_this.newFeedback);
 		_this.newFeedback = {};
 	}
+
+	// this.showPopUp = function () {
+
+	// }
+
+	// this.hidePopUp = function() {
+		
+	// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })

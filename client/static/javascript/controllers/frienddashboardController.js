@@ -72,7 +72,7 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 		newFriend.userID = this.userId;
 		newFriend.friendID = friend._id;
 
-		friendFactory.create(this.userId, newFriend, function(){
+		friendFactory.create(this.userId, newFriend, function(){```
 			getfriends();
 		})
 		// $route.reload();

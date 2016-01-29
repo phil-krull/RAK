@@ -47,6 +47,11 @@ dak_app.config(function ($routeProvider) {
       controller: 'homepageController',
       controllerAs: 'homepageCtrl'
     })
+    .when('/test', {
+      templateUrl: './partials/test.html',
+      controller: 'homepageController',
+      controllerAs: 'homepageCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     })

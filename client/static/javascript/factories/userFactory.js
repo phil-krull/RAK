@@ -3,6 +3,8 @@ dak_app.factory('userFactory', function($http) {
 
 	users = [];
 
+
+
 	factory.index = function(callback) {
 		$http.get('/users').success(function(output) {
 			// console.log('Received from server getting users')
@@ -40,6 +42,20 @@ dak_app.factory('userFactory', function($http) {
 		})
 	}
 
+	factory.addAct = function(info) {
+		$http.post('/users/addact', info).success(function(output) {
+			console.log('Received from server add Act');
+			console.log(output);
+
+		})
+	}
+
+	factory.completeAct = function(info, callback) {
+		$http.patch('/users/completeact', info).success(function(output) {
+			console.log('Received from server complete Act');
+			console.log(output);
+		})
+	}
 
 	return factory;
 })
