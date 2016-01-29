@@ -27,6 +27,7 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 		_this.mynotfriends = [];
 		friendFactory.showFriends(_this.userId, function(friends) {
 			userFactory.index(function(users) {
+				console.log(users);
 				if(friends.friends.length == 0) {
 					_this.mynotfriends = users;
 					return;
@@ -43,7 +44,7 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 						{_this.mynotfriends.push({name: users[i].name, _id: users[i]._id})}
 					count = 0;
 				}
-				console.log(_this.mynotfriends);
+				// console.log(_this.mynotfriends);
 			})
 		})
 	}
@@ -79,6 +80,4 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 		friendFactory.destroy(this.userId, removeFriend)
 
 	}
-
-
 })
