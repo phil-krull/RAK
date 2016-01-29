@@ -28,6 +28,9 @@
 </style>
 	<h1><span ng-bind="userdashboardCtrl.userName"></span>'s User Dashboard</h1>
 
+  Your Rating: <div ng-show="userdashboardCtrl.currentUserRating">
+  <h1><span ng-bind="userdashboardCtrl.currentUserRating"></span>
+  </div>
 
   <button ng-click="userdashboardCtrl.generateDAK()">Generate DAK</button>
   <div ng-show="userdashboardCtrl.generatedDAK">
