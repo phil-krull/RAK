@@ -1,7 +1,9 @@
-dak_app.controller('userdashboardController', function(userFactory, $routeParams, $cookies, actFactory) {
+dak_app.controller('userdashboardController', function(userFactory, friendFactory, $routeParams, $cookies, actFactory) {
 
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
+	console.log(this.userId);
+	console.log(this.userName);
 
 	this.user = {};
 	this.acts = [];
@@ -20,7 +22,7 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 
 	function generateDAKonReg() {
 
-		_this.generateDAKValidation = false;
+		_this.generateDAKValidation;
 		this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 		console.log(this.generatedDAK);
 
@@ -44,6 +46,8 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 
 
 	var _this = this;
+<<<<<<< HEAD
+=======
 	userFactory.show(this.userId, function(data) {
 		console.log(data)
 		_this.user = data;
@@ -52,8 +56,26 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 		console.log(_this.currentUserRating)
 		getFriends()
 		console.log(_this.user.friends)
+>>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
 
-	})
+	// function showFriends() {
+	// 	userFactory.show(this.userId, function(data) {
+	// 		console.log(this.userId)
+	// 		_this.user = data;
+	// 	})
+	// }
+	// showFriends();	
+
+	
+		userFactory.show(this.userId, function(data) {
+			console.log(this.userId)
+			console.log(this.userName)
+			_this.user = data;
+			console.log('getting user rating')
+			getUserRating()
+			console.log(_this.currentUserRating)
+		})
+	
 
 	actFactory.index(function(data) {
 		console.log(data);
@@ -92,8 +114,6 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 		}
 	}
 
-	
-
 
 	
 
@@ -114,11 +134,8 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 				_this.user = data;
 			})
 		})
-
-
 	}
 
-	
 
 
 	this.sendCompleteAct = function(act, index) {
@@ -134,7 +151,10 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 		sendCompleteForm.actID = act;
 		sendCompleteForm.userID = this.userId;
 
+<<<<<<< HEAD
+=======
 		var _this = this;
+>>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
 		userFactory.completeAct(act, sendCompleteForm, function() {
 
 			
@@ -143,12 +163,19 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 				_this.user = data;
 			})
 		})
-
-
 		this.completeActForm[index] = {};
-
 	}
 
+<<<<<<< HEAD
+		this.removeFriend = function(friend) {
+			console.log(this.userId)
+			console.log(friend)
+			var removeFriend = {};
+			removeFriend.userID = this.userId;
+			removeFriend.friendID = friend;
+			friendFactory.destroy(this.userId, removeFriend)
+			// showFriends();
+=======
 	function getFriends() {
 
 		for(z = 0; z < _this.user.friends.length; z++) {
@@ -173,6 +200,7 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 		}
 
 
+>>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
 	}
 
 

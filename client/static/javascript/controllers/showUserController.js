@@ -1,4 +1,4 @@
-dak_app.controller('showUserController', function($cookies, $routeParams, userFactory) {
+dak_app.controller('showUserController', function($location, $cookies, $routeParams, userFactory, friendFactory) {
 	
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
@@ -8,8 +8,12 @@ dak_app.controller('showUserController', function($cookies, $routeParams, userFa
 	console.log(this.showuserId);
 
 	this.user = {};
+
+	this.currentUserRating;
 	
+
 	var _this = this;
+
 	userFactory.show(this.showuserId, function(data) {
 		console.log(data)
 		_this.user = data;
@@ -17,10 +21,12 @@ dak_app.controller('showUserController', function($cookies, $routeParams, userFa
 		getUserRating()
 		console.log(_this.currentUserRating)
 
+		getFriends()
+
 
 	})
 
-	this.currentUserRating;
+	
 
 	function getUserRating() {
 		
@@ -35,16 +41,48 @@ dak_app.controller('showUserController', function($cookies, $routeParams, userFa
 			for(j = 0; j < ratings.length; j++) {
 				total += ratings[j]
 			}
-
 			_this.currentUserRating = total/ratings.length;
-
 		} else {
 			_this.currentUserRating = 0
 		}
 	}
 
 
+	function getFriends() {
+
+		for(z = 0; z < _this.user.friends.length; z++) {
+
+			if(_this.user.friends[z].acts != 0) {
+				var ratings = [];
+				var total = 0;
+
+				for(i = 0; i < _this.user.friends[z].acts.length; i++) {
+					ratings.push(_this.user.friends[z].acts[i].act_info.avg_rating)
+				}
+				for(j = 0; j < ratings.length; j++) {
+					total += ratings[j]
+				}
+
+				var num = total/ratings.length;
+
+				_this.user.friends[z].rating = num.toFixed(1);
+			} else {
+				_this.user.friends[z].rating = 0;
+			}
+		}
 
 
+	}
+
+	this.addFriend = function(friend) {
+		var newFriend = {};
+		newFriend.userID = this.userId;
+		newFriend.friendID = friend;
+
+
+		friendFactory.create(this.userId, newFriend, function() {
+			$location.path('/userdashboard')
+		})
+	}
 
 })
