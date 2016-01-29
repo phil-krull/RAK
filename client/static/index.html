@@ -1,6 +1,8 @@
 <html ng-app="dak_app">
 	<head>
 	<title>Daily Acts of Kindness</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<!-- JQUERY -->
 	<script src="./source/angular.js"></script>
 	<script src="./source/angular_routes.js"></script>
 	<script src="./source/angular-cookies.js"></script>
@@ -21,6 +23,7 @@
 	<script src="./javascript/factories/userFactory.js"></script>
 	<script src="./javascript/factories/actFactory.js"></script>
 	<script src="./javascript/factories/feedbackFactory.js"></script>
+	
 
 	<!-- ==============BootStrap================= -->
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
@@ -30,18 +33,19 @@
 <body ng-controller="homepageController as homepageCtrl">
 	<div id="header">	
 		<div id="loggedInMenu" ng-show="homepageCtrl.loggedin()">
-			<a href="#/userdashboard"> Your Dashboard</a> |
-			<a href="#/frienddashboard"> Friends Dashboard</a> |
-			<a href="#/leaderdashboard"> Leaders Dashboard</a> |
+			<a href="#/userdashboard"> My Dashboard</a> |
+			<a href="#/frienddashboard"> Add a Friend</a> |
+			<a href="#/leaderdashboard"> Leaderboard</a> |
 			<a href="#/logout">Logout</a>
 		</div>
-		<div id='sandwich' ng-hide="homepageCtrl.loggedin()">
+		<div id='sandwich'>
 			<a href="#/login">
 				<span class="glyphicon glyphicon-align-justify" aria-hidden="true">
 				</span>
 			</a>
 		</div>
 	</div>
+	
 	<div id="container" ng-view>
 	</div>
 		<table class="mango">

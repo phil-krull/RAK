@@ -27,15 +27,33 @@ tr {
 
 .forrestgreen{
     
-    background-color: rgba(29,114,29,0.7);
-}
-
-.table{
-    color: white;
-    overflow: scroll;
+    background-color: rgba(29,114,29,0.5);
 }
 
 .centered{
     text-align: center;
+}
+
+#membersLeaderboard table a{
+    color: white;
+    text-decoration: none;
+}
+#membersLeaderboard table a:hover{
+    color: rgba(51,204,255,0.7);
+}
+
+#daksLeaderboard table a{
+    color: white;
+    text-decoration: none;
+}
+#daksLeaderboard table a:hover{
+    color: rgba(51,204,255,0.7);
+}
+.white{
+    text-align: center;
+    color: white;
+}
+.yellow{
+    color: rgba(255,219,77,0.9);
 }
  

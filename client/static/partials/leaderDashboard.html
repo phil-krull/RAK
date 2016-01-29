@@ -3,11 +3,12 @@
 <div>
     <div class='leaderboardContainer'>
       <h2>Members Leaderboard</h2>
+      <div id='membersLeaderboard'>
         <table class='table'>
           <tr class='steelblue'>
-            <th>Member Name:</th>
-            <th># of completed DAK's: </th>
-            <th>Member rating: </th>
+            <th class='yellow'>Member Name:</th>
+            <th class='yellow'># of completed DAK's: </th>
+            <th class='yellow'>Member rating: </th>
           </tr>
           <tr class='forrestgreen' ng-repeat="user in leaderdashboardCtrl.users">
             <td><a href="#/user/{{user._id}}"<span ng-bind="user.name"></span></a></td>
@@ -15,19 +16,22 @@
             <td ng-bind="user.rating"></td>
           </tr>
         </table>
+      </div>
       <h2>DAKs Leaderboard</h2>
+      <div id='daksLeaderboard'>
         <table class='table'>
           <tr class='steelblue'>
-            <th>ACT Name:</th>
-            <th class='centered'>Times completed: </th>
-            <th class='centered'>ACT rating: </th>
+            <th class='yellow'>ACT Name:</th>
+            <th class='yellow'>Times completed: </th>
+            <th class='yellow'>ACT rating: </th>
           </tr>
           <tr class='forrestgreen' ng-repeat="act in leaderdashboardCtrl.acts">
             <td><a href="#/act/{{act._id}}"<span ng-bind="act.name"></span></a></td>
-            <td class='centered' ng-bind="act.user_ratings.length"></td>
+            <td class='white' ng-bind="act.user_ratings.length"></td>
             <td class='centered' ng-bind="act.avg_rating"></td>
           </tr>
         </table>
+      </div>
 
     </div>
 

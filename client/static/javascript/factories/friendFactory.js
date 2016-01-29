@@ -13,8 +13,9 @@ dak_app.factory('friendFactory', function($http) {
 
 
 	factory.create = function(user, info, callback) {
+		console.log(user)
 		// attach friendID and userID
-		$http.post('friends/'+user, info).success(function(output) {
+		$http.post('friends/' + user, info).success(function(output) {
 			console.log('Received from server create friend');
 			console.log(info);
 			callback();

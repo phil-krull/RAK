@@ -1,22 +1,28 @@
+
 <link rel="stylesheet" href="./stylesheets/friendDash-styles.css">
+
 <!-- <div> -->
   <div class='friendDashboardContainer'>
-    <h2>Members Page</h2>
+    <h2 class='yellow'>Add a Friend!</h2>
     <!-- <span class='welcome' ng-bind="frienddashboardCtrl.userName"></span>'s  -->
 
     <div id='searchFriends'>
-        Search for a new Friend: <input type="text" ng-model="yourfriendFilter">
+        <h4 class='yellow'>Search for a new Friend: <span class='black'><input type="text" ng-model="yourfriendFilter"></span></h4>
+        
       <table class='table'>
         <tr class='steelblue'>
           <th>Name</th>
           <th>Member Rating</th>
           <th>Add Friend</th>
         </tr>
-      <tr ng-repeat="user in frienddashboardCtrl.mynotfriends | filter:yourfriendFilter:name" | ng-if="user._id != frienddashboardCtrl.userId">
+      <tr class='forrestgreen' ng-repeat="user in frienddashboardCtrl.mynotfriends | filter:yourfriendFilter:name" | ng-if="user._id != frienddashboardCtrl.userId">
         <td><a href="#/user/{{ user._id }}" ng-bind="user.name"></a></td>
-        <td><span ng-bind="user.done"></span></td>
-        <td><input type="submit" ng-click="frienddashboardCtrl.addFriend(user)" value="Add"></td>
+        <td  class='centered'><span ng-bind="user.done"></span></td>
+        <td class='centered'><button class='btn btn-success' ng-click='frienddashboardCtrl.addFriend(user)'>Add</button></td>
+
+        
       </tr>
     </table>
   </div> 
+
 </div>
