@@ -1,10 +1,46 @@
-dak_app.controller('userdashboardController', function(userFactory, $cookies, actFactory) {
+dak_app.controller('userdashboardController', function(userFactory, $routeParams, $cookies, actFactory) {
 
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
 
 	this.user = {};
 	this.acts = [];
+
+	// console.log($cookies.get('generateDAKonReg'))
+
+	// if($cookies.get('generateDAKonReg')) {
+
+	// 	this.generateDAK();
+	// 	$cookies.remove('generateDAKonReg');
+	// }	
+	this.generateDAKValidation = $routeParams.generateDAK
+		console.log(this.generateDAKValidation)
+
+	this.generatedDAK;
+
+	function generateDAKonReg() {
+
+		this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+		console.log(this.generatedDAK);
+
+		var addedAct = {};
+		addedAct.userID = $cookies.get('userId')
+		addedAct.actID = this.generatedDAK._id
+
+		var _this = this;
+		userFactory.addAct(addedAct, function() {
+
+			userFactory.show($cookies.get('userId'), function(data) {
+				console.log(data);
+				_this.user = data;
+			})
+		})
+
+
+	}
+
+
+
 
 	var _this = this;
 	userFactory.show(this.userId, function(data) {
@@ -19,6 +55,10 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 	actFactory.index(function(data) {
 		console.log(data);
 		_this.acts = data;
+
+		if( _this.generateDAKValidation == 'generateDAK') {
+			generateDAKonReg();
+	}
 
 	}) 
 
@@ -49,7 +89,7 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 	
 
 
-	this.generatedDAK;
+	
 
 	this.generateDAK = function() {
 
@@ -88,11 +128,12 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		sendCompleteForm.actID = act;
 		sendCompleteForm.userID = this.userId;
 
-
+		var _this = this;
 		userFactory.completeAct(act, sendCompleteForm, function() {
 
-			var _this = this;
-			userFactory.index(function(data) {
+			
+			userFactory.show(_this.userId, function(data) {
+				console.log(data)
 				_this.user = data;
 			})
 		})

@@ -57,6 +57,7 @@ dak_app.factory('userFactory', function($http) {
 		$http.patch('/acts/'+act, info).success(function(output) {
 			console.log('Received from server complete Act');
 			console.log(output);
+			callback()
 		})
 	}
 

@@ -26,9 +26,9 @@ dak_app.controller('showActController', function($routeParams, actFactory) {
 			
 		}
 		console.log(count);
-	
 
-		return count/_this.data.approval_rating.length;
+
+		return (count/_this.data.approval_rating.length) * 100;
 
 	}
 
