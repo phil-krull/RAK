@@ -91,7 +91,7 @@ module.exports = {
 		})
 	},
 	show: function(req,res){
-		User.findOne({_id: req.params.id}).deepPopulate('friends acts acts.act_info')
+		User.findOne({_id: req.params.id}).deepPopulate('friends acts acts.act_info friends.acts friends.acts.act_info')
 
 		.exec(function(err, user) {
 			console.log(user);

@@ -23,8 +23,8 @@
       </tr>
       <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
         <td><a href="#/user/{{friend._id}}"<span ng-bind="friend.name"></span></a></td>
-        <td><span ng-bind="friend.pending"></span></td>
-        <td><span ng-bind="friend.done"></span></td>
+       
+        <td><span ng-bind="friend.rating"></span></td>
         <td><div class="btn-group-xs" role="group" aria-label="...">
           <button type="button" class="btn btn-success" ng-click="frienddashboardCtrl.removeFriend(friend)">Remove</button>
           </div>
