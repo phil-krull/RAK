@@ -14,15 +14,6 @@
 				<th>Rating</th>
 			</tr>
 
-<h3>Users</h3>
-<table>
-<tr>
-	<th>Name</th>
-</tr>
-<tr ng-repeat="user in showactCtrl.act.users">
-	<td><a href="#/user/{{user._id}}"<span ng-bind="user.name"></span></a></td>
-
-
 			<tr class='forrestgreen' ng-repeat="user in showactCtrl.act.users">
 				<td><span ng-bind="user.name"></span></td>
 				<td><span ng-bind="user.currentUserRating"></span></td>

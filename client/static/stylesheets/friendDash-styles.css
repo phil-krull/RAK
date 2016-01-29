@@ -54,7 +54,7 @@ h1 {
 
 .forrestgreen{
     
-    background-color: rgba(29,114,29,0.7);
+    background-color: rgba(29,114,29,0.3);
 }
 
 .table{
@@ -64,3 +64,23 @@ h1 {
 .centered{
     text-align: center;
 }
+.abcd{
+  text-align: center:;
+}
+.yellow{
+    color: rgba(255,219,77,0.9);
+}
+.black{
+  color: black;
+
+}
+.blue{
+  color: rgba(49,122,183, 0.7);
+}
+
+#searchFriends table a {
+  color: white;
+  text-decoration: none;
+}
+#searchFriends table a:hover{
+  color: rgba(51,204,255,0.7);
