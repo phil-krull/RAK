@@ -32,7 +32,28 @@
             <span ng-bind="act.act_info.name"></span>     
         </div>
 
+
+<span ng-bind="showuserCtrl.user.name"></span>'s Rating:
+<div ng-show="showuserCtrl.currentUserRating">
+  <h1><span ng-bind="showuserCtrl.currentUserRating"></span>
+  </div>
+
+
+	<table id='friends'>
+      Search <span ng-bind="showuserCtrl.user.name"></span>'s Friends: <input type="text" ng-model="yourfriendFilter">
+      <tr>
+        <th>Name</th>
+        <th>Pending DAK's</th>
+        <th>Done DAK's</th>
+        <th>Add Friend</th>
        
+      </tr>
+      <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
+        <td><span ng-bind="friend.name"></span></td>
+        <td><span ng-bind="friend.pending"></span></td>
+        <td><span ng-bind="friend.done"></span></td>
+      
+
 
 
       <hr>
