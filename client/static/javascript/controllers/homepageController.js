@@ -53,7 +53,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 					this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 					this.DAKlimit++;
 				} else if (this.DAKlimit == 2) {
-					this.reachedDAKlimit = 'You have reached the limit of generating new DAKS'
+					this.reachedDAKlimit = 'Daily limit reached. Please REGISTER for more features'
 					doNotGenerateDAK = true;
 					console.log(doNotGenerateDAK);
 					console.log(this.reachedDAKlimit);

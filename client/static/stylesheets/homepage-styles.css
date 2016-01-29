@@ -1,0 +1,52 @@
+.main {
+	background: rgba(0,0,0,0.8);
+	height: 60%;
+	width: 25%;
+	padding: 1.5%;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border: solid 10px rgba(29,150,29,0.7);
+	overflow: scroll;
+	margin-top: 10%
+}
+
+.main h2 {
+	color: white;
+}
+
+.main p {
+	color: white;
+	font-size: 32px;
+}
+
+#blue {
+	color: rgba(51, 204, 255, 0.7);
+}
+
+.main button {
+	background: rgba(29,150,29,0.8);
+	font-size: 20px;
+	padding: 4% .5%;
+	color: white;
+	font-weight: bold;
+	margin-bottom: 5%;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.main button:hover {
+	background: white;
+	color: rgba(51, 204, 255, 0.7);
+}
+
+#displayMsg {
+	text-align: center;
+	color: white;
+	font-size: 14px;
+}
+
+#displayMsg p {
+	color: rgba(237,90,110,1);
+	font-size: 16px;
+}
+
