@@ -91,7 +91,7 @@ module.exports = {
 		})
 	},
 	show: function(req,res){
-		User.findOne({_id: req.params.id}).deepPopulate('friends')
+		User.findOne({_id: req.params.id}).deepPopulate('friends acts')
 
 		.exec(function(err, user) {
 			if(err){
@@ -102,21 +102,55 @@ module.exports = {
 		})
 	},
 	addAct: function(req,res){
-		User.findOne({_id: req.params.id}), function(err, user){
-			user.acts.push(req.body.actID);
+		console.log(req.body.userID)
+		console.log(req.body.actID)
+		
+		// User.findOne({_id: req.body.userID}, function(err, user) {
+		// 	console.log(user);
+		// })
+
+
+		// User.findByIdAndUpdate(req.body.userID, 
+
+		// {
+		// 	$push: {acts: 
+		// { 
+		// 	$each: [{ act_info: req.body.actID }, {completed: false }] } }, 
+
+		
+
+		// 	function(errors) {
+		// 	if(errors) {
+		// 		console.log(errors);
+		// 	} else {
+		// 		console.log('Success?')
+		// 	}
+		// }
+
+		// })
+
+
+
+		User.findOne({_id: req.body.userID}, function(err, user){
+			console.log('these are user acts')
+			console.log(user.acts)
+			// user.acts[user.acts.length].act_info = req.body.actID;
+			user.acts.push({act_info: req.body.actID, completed: false})
 			user.save(function(err,User){
 				if(err){
 					res.send(err);
 				} else {
+					console.log(user)
 					res.json(User)
 				}
 			})
-		}
+		})
 	},
-	addComplete: function(req,res){
-		User.findOne({_id: req.params.id}), function(err, acts){
-			acts.findOne({act_info: req.body.actID}, function (err, user){
-				user.acts.completed = true;
+	completeAct: function(req,res){
+		User.findOne({_id: req.body.userID}, function(err, user){
+			for(var i = 0; i < user.acts.length; i++){
+				if(users.acts[i].act_info == req.body.actID){
+					users.acts[i].completed = true;
 				user.save(function(err, user){
 					if(err){
 						res.send(err);
@@ -124,8 +158,11 @@ module.exports = {
 						res.json(user);
 					}
 				})
-			})
-		}
+				}
+			}
+
+			
+		})
 	},
 
 

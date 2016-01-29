@@ -1,4 +1,4 @@
-dak_app.factory('actFactory', function($http) {
+dak_app.factory('actFactory', function($http, userFactory) {
 	var factory = {};
 
 	acts = [];
