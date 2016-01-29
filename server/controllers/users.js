@@ -102,8 +102,10 @@ module.exports = {
 		})
 	},
 	addAct: function(req,res){
-		User.findOne({_id: req.body.userID}), function(err, user){
-			user.acts[user.acts.length].act_info = req.body.actID;
+		User.findOne({_id: req.body.userID}, function(err, user){
+			user.acts.act_info = req.body.actID;
+			console.log('!!!!!!!!!');
+
 			user.save(function(err,User){
 				if(err){
 					res.send(err);
@@ -111,7 +113,7 @@ module.exports = {
 					res.json(User)
 				}
 			})
-		}
+		})
 	},
 	completeAct: function(req,res){
 		User.findOne({_id: req.body.userID}), function(err, user){
