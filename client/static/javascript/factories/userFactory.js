@@ -42,10 +42,12 @@ dak_app.factory('userFactory', function($http) {
 		})
 	}
 
-	factory.addAct = function(info) {
+	factory.addAct = function(info, callback) {
 		$http.post('/users/addact', info).success(function(output) {
 			console.log('Received from server add Act');
 			console.log(output);
+
+			callback()
 
 		})
 	}

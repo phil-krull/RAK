@@ -60,7 +60,14 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		addedAct.userID = this.userId;
 		addedAct.actID = this.generatedDAK._id
 
-		userFactory.addAct(addedAct)
+		var _this = this;
+		userFactory.addAct(addedAct, function() {
+
+			userFactory.show(_this.userId, function(data) {
+				console.log(data);
+				_this.user = data;
+			})
+		})
 
 
 	}

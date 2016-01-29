@@ -1,8 +1,11 @@
 <h1>Act: <span ng-bind="showactCtrl.act.name"></span></h1> 
 
 <h3>Approval Rating</h3>
+<span ng-bind="showactCtrl.act.currApprovalRating"></span>%
+out of: <span ng-bind="showactCtrl.act.approval_rating.length"></span> user(s)
 
 <h3>Average User Rating</h3>
+<span ng-bind="showactCtrl.act.currAverageUserRating"></span>
 
 <h3>Users</h3>
 <table>
