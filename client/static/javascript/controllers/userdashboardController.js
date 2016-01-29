@@ -1,4 +1,4 @@
-dak_app.controller('userdashboardController', function(userFactory, $cookies, actFactory) {
+dak_app.controller('userdashboardController', function(userFactory, friendFactory, $cookies, actFactory) {
 
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
@@ -7,14 +7,25 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 	this.acts = [];
 
 	var _this = this;
-	userFactory.show(this.userId, function(data) {
-		console.log(data)
-		_this.user = data;
-		console.log('getting user rating')
-		getUserRating()
-		console.log(_this.currentUserRating)
 
-	})
+	// function showFriends() {
+	// 	userFactory.show(this.userId, function(data) {
+	// 		console.log(this.userId)
+	// 		_this.user = data;
+	// 	})
+	// }
+	// showFriends();	
+
+	
+		userFactory.show(this.userId, function(data) {
+			console.log(this.userId)
+			console.log(this.userName)
+			_this.user = data;
+			console.log('getting user rating')
+			getUserRating()
+			console.log(_this.currentUserRating)
+		})
+	
 
 	actFactory.index(function(data) {
 		console.log(data);
@@ -46,8 +57,6 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		}
 	}
 
-	
-
 
 	this.generatedDAK;
 
@@ -68,11 +77,8 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 				_this.user = data;
 			})
 		})
-
-
 	}
 
-	
 
 
 	this.sendCompleteAct = function(act, index) {
@@ -88,7 +94,6 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		sendCompleteForm.actID = act;
 		sendCompleteForm.userID = this.userId;
 
-
 		userFactory.completeAct(act, sendCompleteForm, function() {
 
 			var _this = this;
@@ -96,13 +101,18 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 				_this.user = data;
 			})
 		})
-
-
 		this.completeActForm[index] = {};
-
 	}
 
-
+		this.removeFriend = function(friend) {
+			console.log(this.userId)
+			console.log(friend)
+			var removeFriend = {};
+			removeFriend.userID = this.userId;
+			removeFriend.friendID = friend;
+			friendFactory.destroy(this.userId, removeFriend)
+			// showFriends();
+	}
 
 
 

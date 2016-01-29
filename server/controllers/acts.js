@@ -41,6 +41,8 @@ module.exports = {
     create: function(req, res) {
       var new_act = new Acts(req.body);
       new_act.approval = true;
+      new_act.avg_approval = 0;
+      new_act.avg_rating = 0;
       new_act.save(function(errors, act) {
         if(errors) {
           res.send(errors)
@@ -51,10 +53,10 @@ module.exports = {
     },
 
     update: function(req, res) {
-      console.log( req.body.recommend)
-      console.log( req.body.actrating)
-      console.log(typeof req.body.actID)
-      console.log(req.params.id)
+      console.log( req.body)
+      // console.log( req.body.actrating)
+      // console.log(typeof req.body.actID)
+      // console.log(req.params.id)
 
         Acts.find({ }, function(err, acts) {
           console.log(acts)

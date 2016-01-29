@@ -49,7 +49,8 @@
         <td><a href="#/user/{{friend._id}}"<span ng-bind="friend.name"></span></a></td>
         <td><span ng-bind="friend.pending"></span></td>
         <td><span ng-bind="friend.done"></span></td>
-        <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Remove"></td>
+        <td><button ng-click="userdashboardCtrl.removeFriend(friend._id)">Remove</button></td>
+          <!-- <input type="submit" ng-init="friend._id" ng-click="frienddashboardCtrl.removeFriend()" value="Remove"> -->
       </tr>
     </table>
 
