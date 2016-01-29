@@ -10,10 +10,12 @@
             <th class='yellow'># of completed DAK's: </th>
             <th class='yellow'>Member rating: </th>
           </tr>
-          <tr class='forrestgreen' ng-repeat="user in leaderdashboardCtrl.users">
+
+          <tr class='forrestgreen' ng-repeat="user in leaderdashboardCtrl.users | orderBy: '-rating'">
             <td ><a href="#/user/{{user._id}}"<span ng-bind="user.name"></span></a></td>
-            <td  class='white'ng-bind="user.acts.length"></td>
-            <td  class='white'ng-bind="user.rating"></td>
+            <td class="white" ng-bind="user.acts.length"></td>
+            <td class="white" ng-bind="user.rating"></td>
+
           </tr>
         </table>
       </div>
@@ -28,7 +30,7 @@
           <tr class='forrestgreen' ng-repeat="act in leaderdashboardCtrl.acts">
             <td><a href="#/act/{{act._id}}"<span ng-bind="act.name"></span></a></td>
             <td class='white' ng-bind="act.user_ratings.length"></td>
-            <td class='centered' ng-bind="act.avg_rating"></td>
+            <td class='white' ng-bind="act.avg_rating"></td>
           </tr>
         </table>
       </div>
