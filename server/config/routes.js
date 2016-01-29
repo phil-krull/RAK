@@ -55,4 +55,8 @@ module.exports = function(app) {
     Acts.update(req, res)
   })
 
+  app.get('/friends/:id', function(req, res) {
+    Users.show(req, res);
+  })
+
 }

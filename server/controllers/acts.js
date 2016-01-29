@@ -65,6 +65,7 @@ module.exports = {
           }
             currentact.save();
 
+
           User.findOne({_id: req.body.userID}, function(err, user){
             for(var i = 0; i < user.acts.length; i++){
               if(user.acts[i].act_info == req.body.actID){
@@ -81,6 +82,7 @@ module.exports = {
 
       
     })
+
 
 
         if(errors) {
