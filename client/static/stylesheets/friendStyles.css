@@ -1,0 +1,35 @@
+
+* {
+  color: white;
+}
+
+.friendDashboardContainer {
+  background: rgba(0,0,0,0.8);
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: solid 10px rgba(29,150,29,0.7);
+  width: 100%;
+  height: 100%;
+  /*padding: 5% 10%;*/
+  /*text-align: left;*/
+  font-size: 18px;
+  color: white;
+  overflow: scroll;
+}
+.welcome {
+  font-size: 
+}
+table{
+  width: 100%;
+  margin-top: 3%;
+}
+#friends {
+  margin-bottom: 3%;
+}
+h1 {
+  padding-left: 0%;
+/* margin-bottom: 7%;*/
+}
+#searchFriends, #users{
+  padding: 5%;
+}

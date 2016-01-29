@@ -17,15 +17,15 @@
       <!-- Search Your Friends: <input type="text" ng-model="yourfriendFilter"> -->
       <tr>
         <th>Name</th>
+        <th>Pending Acts</th>
         <th>User Rating</th>
         <th>Remove Friend</th>
       </tr>
       <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
         <td><a href="#/user/{{friend._id}}"<span ng-bind="friend.name"></span></a></td>
-       
         <td><span ng-bind="friend.rating"></span></td>
         <td><div class="btn-group-xs" role="group" aria-label="...">
-          <button type="button" class="btn btn-default" ng-click="frienddashboardCtrl.removeFriend(friend)">Remove</button>
+          <button type="button" class="btn btn-success" ng-click="frienddashboardCtrl.removeFriend(friend._id)">Remove</button>
           </div>
         </td>
       </tr>

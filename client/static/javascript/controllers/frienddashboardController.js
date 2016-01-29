@@ -72,6 +72,7 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 	} 
 
 	this.removeFriend = function(friend) {
+		console.log(friend)
 
 		var removeFriend = {};
 		removeFriend.userID = this.userId;
