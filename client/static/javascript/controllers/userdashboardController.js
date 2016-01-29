@@ -86,7 +86,7 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 			_this.currentUserRating = num.toFixed(1);
 
 		} else {
-			_this.currentUserRating = "You don't have a rating! Click on 'Generate DAK' to start your first!"
+			_this.currentUserRating = "You don't have a rating! Click on 'Get Daily Act' to start your first!"
 		}
 	}
 
