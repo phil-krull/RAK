@@ -1,4 +1,4 @@
-dak_app.controller('userdashboardController', function(userFactory, friendFactory, $cookies, actFactory) {
+dak_app.controller('userdashboardController', function(userFactory, friendFactory, $routeParams, $cookies, actFactory) {
 
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
@@ -6,7 +6,55 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 	this.user = {};
 	this.acts = [];
 
+	// console.log($cookies.get('generateDAKonReg'))
+
+	// if($cookies.get('generateDAKonReg')) {
+
+	// 	this.generateDAK();
+	// 	$cookies.remove('generateDAKonReg');
+	// }	
+	this.generateDAKValidation = $routeParams.generateDAK
+		console.log(this.generateDAKValidation)
+
+	this.generatedDAK;
+
+	function generateDAKonReg() {
+
+		_this.generateDAKValidation = false;
+		this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+		console.log(this.generatedDAK);
+
+		var addedAct = {};
+		addedAct.userID = $cookies.get('userId')
+		addedAct.actID = this.generatedDAK._id
+
+		var _this = this;
+		userFactory.addAct(addedAct, function() {
+
+			userFactory.show($cookies.get('userId'), function(data) {
+				console.log(data);
+				_this.user = data;
+			})
+		})
+
+
+	}
+
+
+
+
 	var _this = this;
+<<<<<<< HEAD
+=======
+	userFactory.show(this.userId, function(data) {
+		console.log(data)
+		_this.user = data;
+		console.log('getting user rating')
+		getUserRating()
+		console.log(_this.currentUserRating)
+		getFriends()
+		console.log(_this.user.friends)
+>>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
 
 	// function showFriends() {
 	// 	userFactory.show(this.userId, function(data) {
@@ -31,6 +79,11 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 		console.log(data);
 		_this.acts = data;
 
+		if( _this.generateDAKValidation == 'generateDAK') {
+			generateDAKonReg();
+		
+	}
+
 	}) 
 
 
@@ -50,15 +103,17 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 				total += ratings[j]
 			}
 
-			_this.currentUserRating = total/ratings.length;
+			var num = total/ratings.length;
+
+			_this.currentUserRating = num.toFixed(1);
 
 		} else {
-			_this.currentUserRating = "You don't have a rating! Click on 'Generate DAK' to start your first!"
+			_this.currentUserRating = "You don't have a rating! Click on 'Get Daily Act' to start your first!"
 		}
 	}
 
 
-	this.generatedDAK;
+	
 
 	this.generateDAK = function() {
 
@@ -94,16 +149,22 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 		sendCompleteForm.actID = act;
 		sendCompleteForm.userID = this.userId;
 
+<<<<<<< HEAD
+=======
+		var _this = this;
+>>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
 		userFactory.completeAct(act, sendCompleteForm, function() {
 
-			var _this = this;
-			userFactory.index(function(data) {
+			
+			userFactory.show(_this.userId, function(data) {
+				console.log(data)
 				_this.user = data;
 			})
 		})
 		this.completeActForm[index] = {};
 	}
 
+<<<<<<< HEAD
 		this.removeFriend = function(friend) {
 			console.log(this.userId)
 			console.log(friend)
@@ -112,6 +173,32 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 			removeFriend.friendID = friend;
 			friendFactory.destroy(this.userId, removeFriend)
 			// showFriends();
+=======
+	function getFriends() {
+
+		for(z = 0; z < _this.user.friends.length; z++) {
+
+			if(_this.user.friends[z].acts != 0) {
+				var ratings = [];
+				var total = 0;
+
+				for(i = 0; i < _this.user.friends[z].acts.length; i++) {
+					ratings.push(_this.user.friends[z].acts[i].act_info.avg_rating)
+				}
+				for(j = 0; j < ratings.length; j++) {
+					total += ratings[j]
+				}
+
+				var num = total/ratings.length;
+
+				_this.user.friends[z].rating = num.toFixed(1);
+			} else {
+				_this.user.friends[z].rating = 0;
+			}
+		}
+
+
+>>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
 	}
 
 

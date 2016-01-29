@@ -62,6 +62,11 @@ dak_app.config(function ($routeProvider) {
       controller: 'showActController',
       controllerAs: 'showactCtrl'
     })
+    .when('/userdashboard/:generateDAK', {
+      templateUrl: './partials/userDashboard.html',
+      controller: 'userdashboardController',
+      controllerAs: 'userdashboardCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     })

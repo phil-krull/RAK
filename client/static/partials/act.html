@@ -13,7 +13,7 @@ out of: <span ng-bind="showactCtrl.act.approval_rating.length"></span> user(s)
 	<th>Name</th>
 </tr>
 <tr ng-repeat="user in showactCtrl.act.users">
-	<td><span ng-bind="user.name"></span></td>
+	<td><a href="#/user/{{user._id}}"<span ng-bind="user.name"></span></a></td>
 
 
 </tr>
