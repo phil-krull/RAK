@@ -36,16 +36,14 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 				_this.user = data;
 			})
 		})
-
-
 	}
 
 
 
 
 	var _this = this;
-<<<<<<< HEAD
-=======
+
+
 	userFactory.show(this.userId, function(data) {
 		console.log(data)
 		_this.user = data;
@@ -54,7 +52,7 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 		console.log(_this.currentUserRating)
 		getFriends()
 		console.log(_this.user.friends)
->>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
+
 
 	// function showFriends() {
 	// 	userFactory.show(this.userId, function(data) {
@@ -65,13 +63,13 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 	// showFriends();	
 
 	
-		userFactory.show(this.userId, function(data) {
-			console.log(this.userId)
-			console.log(this.userName)
-			_this.user = data;
-			console.log('getting user rating')
-			getUserRating()
-			console.log(_this.currentUserRating)
+		// userFactory.show(this.userId, function(data) {
+		// 	console.log(this.userId)
+		// 	console.log(this.userName)
+		// 	_this.user = data;
+		// 	console.log('getting user rating')
+		// 	getUserRating()
+		// 	console.log(_this.currentUserRating)
 		})
 	
 
@@ -149,10 +147,9 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 		sendCompleteForm.actID = act;
 		sendCompleteForm.userID = this.userId;
 
-<<<<<<< HEAD
-=======
+
 		var _this = this;
->>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
+
 		userFactory.completeAct(act, sendCompleteForm, function() {
 
 			
@@ -164,7 +161,7 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 		this.completeActForm[index] = {};
 	}
 
-<<<<<<< HEAD
+
 		this.removeFriend = function(friend) {
 			console.log(this.userId)
 			console.log(friend)
@@ -173,7 +170,8 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 			removeFriend.friendID = friend;
 			friendFactory.destroy(this.userId, removeFriend)
 			// showFriends();
-=======
+		}
+
 	function getFriends() {
 
 		for(z = 0; z < _this.user.friends.length; z++) {
@@ -196,11 +194,7 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 				_this.user.friends[z].rating = 0;
 			}
 		}
-
-
->>>>>>> dda76eba822e628fc4ada97e33e4f2f22437446c
 	}
 
-
-
 })
+
