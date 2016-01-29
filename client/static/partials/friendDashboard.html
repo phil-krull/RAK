@@ -2,6 +2,7 @@
 <div>
   <div class='friendDashboardContainer'>
     <h2><span class='welcome' ng-bind="frienddashboardCtrl.userName"></span>'s Friends Page</h2>
+
     <div id='searchFriends'>
         Search Your Friends: <input type="text" ng-model="yourfriendFilter">
       <table class='table'>
@@ -18,7 +19,7 @@
           <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Remove"></td>
         </tr>
     </table>
-  </div>
+  </div> -->
 
 
 <div id='users'>
@@ -30,9 +31,9 @@
       <th>Done DAK's</th>
       <th>Add Friend</th>
     </tr>
-    <tr ng-repeat="user in frienddashboardCtrl.users  | filter:newfriendFilter" | ng-if ="user._id != frienddashboardCtrl.userId">
+    <tr ng-repeat="user in frienddashboardCtrl.mynotfriends" | ng-if="user._id != frienddashboardCtrl.userId">
       <td><span ng-bind="user.name"></span></td>
-      <td><span ng-bind="user.pending"></span></td>
+      <td><span ng-bind="user._id"></span></td>
       <td><span ng-bind="user.done"></span></td>
       <td><input type="submit" ng-click="frienddashboardCtrl.addFriend(user)" value="Add"></td>
     </tr>

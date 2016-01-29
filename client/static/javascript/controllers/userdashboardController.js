@@ -43,13 +43,14 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		console.log(index)
 
 		var sendCompleteForm = {};
-		sendCompleteForm.recommend = this.completeActForm[index].recommend;
-		sendCompleteForm.actrating = this.completeActForm[index].actrating;
+		sendCompleteForm.recommend = parseInt(this.completeActForm[index].recommend);
+		sendCompleteForm.actrating = parseInt(this.completeActForm[index].actrating);
 		sendCompleteForm.comment = this.completeActForm[index].comment;
-		sendCompleteForm.actID = act._id;
+		sendCompleteForm.actID = act;
 		sendCompleteForm.userID = this.userId;
 
-		userFactory.completeAct(sendCompleteForm, function() {
+
+		userFactory.completeAct(act, sendCompleteForm, function() {
 
 			var _this = this;
 			userFactory.index(function(data) {
