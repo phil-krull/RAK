@@ -24,7 +24,7 @@ dak_app.controller('showUserController', function($cookies, $routeParams, userFa
 
 	function getUserRating() {
 		
-		if(_this.user.acts > 0) {
+		if(_this.user.acts != 0) {
 			console.log(_this.user.acts[0].act_info.avg_rating)
 			var ratings = [];
 			var total = 0;
