@@ -2,6 +2,8 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
+	console.log(this.userId);
+	console.log(this.userName);
 
 	this.user = {};
 	this.acts = [];
@@ -20,7 +22,7 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 
 	function generateDAKonReg() {
 
-		_this.generateDAKValidation = false;
+		_this.generateDAKValidation;
 		this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 		console.log(this.generatedDAK);
 
