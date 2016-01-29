@@ -67,7 +67,7 @@
 #friends td:nth-child(1) {
   padding-left: 2%;
 }
-#friends td:nth-child(4) {
+#friends td:nth-child(3) {
   text-align: center;
 }
 
@@ -97,6 +97,15 @@
 #pendingTable tr td:nth-child(1) {
   width: 40%;
   padding-left: 2%;
+}
+
+#pendingTable button, #friends button {
+  background: rgba(29,150,29,0.7);
+  color: white;
+}
+
+#pendingTable button:hover , #friends button:hover {
+  background: rgba(51, 204, 255, 0.7);
 }
 
 #yellow {
