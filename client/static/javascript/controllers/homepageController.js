@@ -4,6 +4,8 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 
 	this.acts = [];
 
+
+
 	this.loggedin = actFactory.loggedin;
 
 	_this = this;
@@ -21,6 +23,8 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 		_this.acts = data;
 	})
 
+	this.actSubmittedMessage;
+
 	  this.createDAK = function() {
 	  	// console.log(this.newDAK);
 
@@ -30,7 +34,12 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	    	actFactory.index(function(data) {
 	    		_this.acts = data;
 	    	})
+
+
+
 	    });
+
+	   this.actSubmittedMessage = "Thank you for submitting your Act of Kindness"
 
 	    this.newDAK = {};
 	  }

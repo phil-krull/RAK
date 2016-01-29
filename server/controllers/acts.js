@@ -6,6 +6,26 @@ var User = mongoose.model('user');
 
 module.exports = {
 
+    show: function(req, res) {
+      Acts.findOne({_id: req.params.id}).deepPopulate('users')
+
+      .exec(function(err, act) {
+        if(err) {
+          res.json(err)
+        } else {
+          res.json(act);
+        }
+      })
+
+      // Acts.findOne({_id: req.params.id}, function(err, act) {
+      //   if(err) {
+      //     res.send(err)
+      //   } else {
+      //     res.json(act)
+      //   }
+      // } )
+    },
+
     index: function(req, res) {
 
       Acts.find({}, function(errors, acts) {

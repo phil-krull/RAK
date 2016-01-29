@@ -1,15 +1,22 @@
-dak_app.factory('actFactory', function($http, userFactory) {
+dak_app.factory('actFactory', function($http, userFactory, $cookies) {
 	var factory = {};
 
 	acts = [];
 
 	// var loggedin = false;
 
-	loggedin = false;
+	// loggedinuser =  $cookies.get('userId')
+
+	// loggedin = false;
 
 	factory.loggedin = function() {
-		
-		return loggedin;
+		if($cookies.get('userId')) {
+			return true;
+		} else {
+			return false;
+		}
+
+		// return loggedinuser;
 	}
 
 
@@ -52,6 +59,14 @@ dak_app.factory('actFactory', function($http, userFactory) {
 		})
 	}
 
+	factory.show = function(act, callback) {
+		$http.get('/acts/'+act).success(function(output) {
+			console.log('Received from server get act');
+			console.log(output)
+			callback(output)
+		})
+
+	}
 
 	return factory;
 })

@@ -134,13 +134,24 @@ module.exports = {
 
 	
 	index: function(req,res){
-		User.find({}, function(err, users){
-			if(err){
-				res.send(err);
+		User.find({}).deepPopulate('acts acts.act_info')
+
+		.exec(function(err, users) {
+			if(err) {
+				res.json(err)
 			} else {
 				res.json(users);
 			}
 		})
+
+
+		// User.find({}, function(err, users){
+		// 	if(err){
+		// 		res.send(err);
+		// 	} else {
+		// 		res.json(users);
+		// 	}
+		// })
 	}
 
 	// show: funcion(req, res) {
