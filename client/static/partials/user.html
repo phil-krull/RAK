@@ -10,21 +10,20 @@
       Search <span ng-bind="showuserCtrl.user.name"></span>'s Friends: <input type="text" ng-model="yourfriendFilter">
       <tr>
         <th>Name</th>
-        <th>Pending DAK's</th>
-        <th>Done DAK's</th>
+        <th>Friend Rating</th>
         <th>Add Friend</th>
        
       </tr>
-      <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
-        <td><span ng-bind="friend.name"></span></td>
-        <td><span ng-bind="friend.pending"></span></td>
-        <td><span ng-bind="friend.done"></span></td>
+      <tr ng-repeat="friend in showuserCtrl.user.friends | filter:yourFriendFilter">
+        <td><a href="#/user/{{friend._id}}"<span ng-bind="friend.name"></span></a></td>
+        <td><span ng-bind="friend.rating"></span></td>
+        <td><input type="submit" ng-click="showuserCtrl.addFriend(friend)" value="Add"></td>
        
       </tr>
     </table>
 
     <h3><span ng-bind="showuserCtrl.user.name"></span>'s Pending Acts</h3>
-  <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != true">
+  <div ng-repeat="act in showuserCtrl.user.acts" | ng-if="act.completed != true">
     <span ng-bind="act.act_info.name"></span>     
     </div>
 
@@ -33,7 +32,7 @@
 
 <hr>
   <h3><span ng-bind="showuserCtrl.user.name"></span>'s Completed Acts</h3>
-  <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != false">
+  <div ng-repeat="act in showuserCtrl.user.acts" | ng-if="act.completed != false">
     <span ng-bind="act.act_info.name"></span>
   </div>
 

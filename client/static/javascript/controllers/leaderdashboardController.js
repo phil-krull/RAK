@@ -27,7 +27,9 @@ dak_app.controller('leaderdashboardController', function(actFactory, userFactory
               total += ratings[j]
             }
 
-            users[z].rating = total/ratings.length;
+            var num = total/ratings.length
+
+            users[z].rating = num.toFixed(1);
           } else {
             users[z].rating = 0;
           }
