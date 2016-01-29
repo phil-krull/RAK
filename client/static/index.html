@@ -6,7 +6,7 @@
 	<script src="./source/angular-cookies.js"></script>
 	<!-- ==============BootStrap================= -->
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <script src="./angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="./angular-bootstrap/ui-bootstrap.min.js"></script>
 	<!-- ================stylesheet/css=============== -->
 	<link rel="stylesheet" href="./stylesheets/styles.css">
 	
@@ -29,17 +29,18 @@
 
 </head>
 <body ng-controller="homepageController as homepageCtrl">
-		<div id='sandwich'>
-			<a href="#/login">
-					<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></a></span>
-				</div>
-		</div>
-	<div id="header">
-		<div ng-show="homepageCtrl.loggedin()">
+	<div id="header">	
+		<div id="loggedInMenu" ng-show="homepageCtrl.loggedin()">
 			<a href="#/userdashboard"> Your Dashboard</a> |
 			<a href="#/frienddashboard"> Friends Dashboard</a> |
 			<a href="#/leaderdashboard"> Leaders Dashboard</a> |
 			<a href="#/logout">Logout</a>
+		</div>
+		<div id='sandwich' ng-hide="homepageCtrl.loggedin()">
+			<a href="#/login">
+				<span class="glyphicon glyphicon-align-justify" aria-hidden="true">
+				</span>
+			</a>
 		</div>
 	</div>
 	<div id="container" ng-view>
@@ -47,20 +48,15 @@
 		<table class="mango">
 			<tr>
 				<td>
-
-					<form class="form-inline" role='form'>
-
-						<div class="form-group">
-								<input type="text" class="form-control" placeholder="Submit An Act of Kindness" ng-model="homepageCtrl.newDAK.name">
-						</div>
-						<div class="form-group">
-							<button type='submit' class='btn btn-default' ng-click='hompageCtrl.createDAK()'>Submit</button>
+					<form class="form" ng-submit="homepageCtrl.createDAK()">
+						<div class="row">
+					  		<div class="col-xs-5">
+					    		<input type="text" class="form-control" placeholder="Submit An Act of Kindness" ng-model="homepageCtrl.newDAK.name">
+					  		</div>
+					  		<button type="submit" class="btn btn-default" ng-click='hompageCtrl.createDAK()'>Submit</button>
 						</div>
 					</form>
 						<!-- <input type="submit" ng-click="homepageCtrl.createDAK()" class="input-group-addon"></span> -->
-
-					</div>
-				</form>
 					<div ng-show="homepageCtrl.actSubmittedMessage">
 					<span ng-bind="homepageCtrl.actSubmittedMessage"></span>
 					</div>

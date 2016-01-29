@@ -1,0 +1,52 @@
+<div>
+<form class="form-inline" role='form'>
+
+	<div class="col-md-5">
+			<input type="text" class="form-control" placeholder="Submit An Act of Kindness" ng-model="homepageCtrl.newDAK.name">
+	</div>
+	<div class="form-group">
+		<button type='submit' class='btn btn-default' ng-click='hompageCtrl.createDAK()'>Submit</button>
+	</div>
+</form>
+	<!-- <input type="submit" ng-click="homepageCtrl.createDAK()" class="input-group-addon"></span> -->
+
+<script>
+angular.module('ui.bootstrap.demo').controller('PopoverDemoCtrl', function ($scope) {
+  $scope.dynamicPopover = {
+    content: 'Hello, World!',
+    templateUrl: 'myPopoverTemplate.html',
+    title: 'Title'
+  };
+
+  $scope.placement = {
+    options: [
+      'top',
+      'top-left',
+      'top-right',
+      'bottom',
+      'bottom-left',
+      'bottom-right',
+      'left',
+      'left-top',
+      'left-bottom',
+      'right',
+      'right-top',
+      'right-bottom'
+    ],
+    selected: 'top'
+  };
+});
+</script>
+
+    <h4>Triggers</h4>
+    <p>
+     <button uib-popover="I appeared on mouse enter!" popover-trigger="mouseenter" type="button" class="btn btn-default">Mouseenter</button>
+    </p>
+    <input type="text" value="Click me!" uib-popover="I appeared on focus! Click away and I'll vanish..."  popover-trigger="focus" class="form-control">
+
+</div>
+
+
+
+
+
