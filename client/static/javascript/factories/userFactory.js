@@ -46,7 +46,14 @@ dak_app.factory('userFactory', function($http) {
 		$http.post('/users/addact', info).success(function(output) {
 			console.log('Received from server add Act');
 			console.log(output);
-			
+
+		})
+	}
+
+	factory.completeAct = function(info, callback) {
+		$http.patch('/users/completeact', info).success(function(output) {
+			console.log('Received from server complete Act');
+			console.log(output);
 		})
 	}
 

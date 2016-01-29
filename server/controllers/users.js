@@ -91,7 +91,7 @@ module.exports = {
 		})
 	},
 	show: function(req,res){
-		User.findOne({_id: req.params.id}).deepPopulate('friends acts')
+		User.findOne({_id: req.params.id}).deepPopulate('friends acts acts.act_info')
 
 		.exec(function(err, user) {
 			if(err){
@@ -105,31 +105,6 @@ module.exports = {
 		console.log(req.body.userID)
 		console.log(req.body.actID)
 		
-		// User.findOne({_id: req.body.userID}, function(err, user) {
-		// 	console.log(user);
-		// })
-
-
-		// User.findByIdAndUpdate(req.body.userID, 
-
-		// {
-		// 	$push: {acts: 
-		// { 
-		// 	$each: [{ act_info: req.body.actID }, {completed: false }] } }, 
-
-		
-
-		// 	function(errors) {
-		// 	if(errors) {
-		// 		console.log(errors);
-		// 	} else {
-		// 		console.log('Success?')
-		// 	}
-		// }
-
-		// })
-
-
 
 		User.findOne({_id: req.body.userID}, function(err, user){
 			console.log('these are user acts')
@@ -147,6 +122,7 @@ module.exports = {
 		})
 	},
 	completeAct: function(req,res){
+		console.log(req.body.recommend)
 		User.findOne({_id: req.body.userID}, function(err, user){
 			for(var i = 0; i < user.acts.length; i++){
 				if(users.acts[i].act_info == req.body.actID){
