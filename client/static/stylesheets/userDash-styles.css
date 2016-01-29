@@ -119,3 +119,8 @@
 #pendingTable tr td:nth-child(3) {
  /* text-align: center;*/
 }
+
+.white {
+  color:white;
+  text-align: center;
+}
