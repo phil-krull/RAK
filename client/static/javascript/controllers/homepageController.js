@@ -1,5 +1,5 @@
 dak_app.controller('homepageController', function($cookies, $location, userFactory, friendFactory, actFactory, feedbackFactory) {
-
+	
 	this.users = [];
 
 	this.acts = [];
@@ -82,6 +82,8 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 		feedbackFactory.create(_this.newFeedback);
 		_this.newFeedback = {};
 	}
+
+	
 
 	// this.showPopUp = function () {
 

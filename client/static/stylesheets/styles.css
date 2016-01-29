@@ -40,6 +40,11 @@ body {
 	right: 5%;
 	top: 1%;
 }
+#hover_result{
+	position: fixed;
+	right: 5%;
+	top: 2%;
+}
 
 .glyphicon {
     font-size: 40px;
@@ -74,6 +79,7 @@ a, a:hover {
 	border-top-right-radius: 20px;
 	border-bottom-left-radius: 20px;
 	border: solid 10px rgba(29,150,29,0.7);
+	overflow: scroll;
 }
 
 .main h2 {

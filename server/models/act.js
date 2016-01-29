@@ -8,7 +8,8 @@ var actsSchema = new Schema({
   avg_rating: Number,
   approval_rating: [Number],
   avg_approval: Number,
-  approval: Boolean
+  approval: Boolean,
+  created_at: Date
 
 })
 
