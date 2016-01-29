@@ -39,13 +39,15 @@
 <p><input type="submit" ng-click="showuserCtrl.addFriend(showuserCtrl.user._id)" value="Add"></p>
 
 <span ng-bind="showuserCtrl.user.name"></span>'s Rating:
+
+
+
 <div ng-show="showuserCtrl.currentUserRating">
   <h1><span ng-bind="showuserCtrl.currentUserRating"></span>
-  </div>
+  </div></h1>
 
 
 	<table id='friends'>
-      Search <span ng-bind="showuserCtrl.user.name"></span>'s Friends: <input type="text" ng-model="yourfriendFilter">
       <tr>
         <th>Name</th>
         <th>Friend Rating</th>
