@@ -27,18 +27,23 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 
 	function getUserRating() {
 		
-		console.log(_this.user.acts[0].act_info.avg_rating)
-		var ratings = [];
-		var total = 0;
+		if(_this.user.acts > 0) {
+			console.log(_this.user.acts[0].act_info.avg_rating)
+			var ratings = [];
+			var total = 0;
 
-		for(i = 0; i < _this.user.acts.length; i++) {
-			ratings.push(_this.user.acts[i].act_info.avg_rating)
-		}
-		for(j = 0; j < ratings.length; j++) {
-			total += ratings[j]
-		}
+			for(i = 0; i < _this.user.acts.length; i++) {
+				ratings.push(_this.user.acts[i].act_info.avg_rating)
+			}
+			for(j = 0; j < ratings.length; j++) {
+				total += ratings[j]
+			}
 
-		_this.currentUserRating = total/ratings.length;
+			_this.currentUserRating = total/ratings.length;
+
+		} else {
+			_this.currentUserRating = "You don't have a rating! Click on 'Generate DAK' to start your first!"
+		}
 	}
 
 	

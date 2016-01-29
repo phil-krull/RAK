@@ -10,8 +10,8 @@
             <th>Member rating: </th>
           </tr>
           <tr class='forrestgreen' ng-repeat="user in leaderdashboardCtrl.users">
-            <td ng-bind="user.name"></td>
-            <td ng-bind="user.acts"></td>
+            <td><a href="#/user/{{user._id}}"<span ng-bind="user.name"></span></a></td>
+            <td ng-bind="user.acts.length"></td>
             <td ng-bind="user.rating"></td>
           </tr>
         </table>

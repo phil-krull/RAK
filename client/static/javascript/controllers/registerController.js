@@ -23,7 +23,7 @@ dak_app.controller('registerController', function(userFactory, $location, $cooki
 				this.errors = [];
 				$cookies.put('userId', output._id );
 				$cookies.put('userName', output.name);
-				$location.path('/login');
+				$location.path('/userdashboard');
 			}
 
 		});
