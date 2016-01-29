@@ -11,7 +11,7 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 	function showUser() {
 
 		userFactory.show(_this.userId, function(data) {
-		console.log(data);
+		// console.log(data);
 		_this.user = data;
 		})
 	}
@@ -19,13 +19,38 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 	function getUsers() {
 
 		userFactory.index(function(data) {
-		console.log(data);
 		_this.users = data;
+		})
+	}
+
+	function getfriends() {
+		_this.mynotfriends = [];
+		friendFactory.showFriends(_this.userId, function(friends) {
+			userFactory.index(function(users) {
+				if(friends.friends.length == 0) {
+					_this.mynotfriends = users;
+					return;
+				}
+				for(var i = 0; i < users.length; i++) {
+					for(var j = 0; j < friends.friends.length; j++) {
+						var count = 0;
+						if(users[i]._id == friends.friends[j]._id || users[i]._id == _this.userId) {
+							count = 1;
+							break;
+						}
+					}
+					if(count == 0) 
+						{_this.mynotfriends.push({name: users[i].name, _id: users[i]._id})}
+					count = 0;
+				}
+				console.log(_this.mynotfriends);
+			})
 		})
 	}
 	
 	showUser()
 	getUsers()
+	getfriends()
 
 	// code below was to make it so that users that were already added to the friends
 	// list wouldn't show in the users list. Not working, because, index method is running before show method
@@ -39,14 +64,18 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 	// 	}
 
 
+
+
 	this.addFriend = function(friend) {
 
 		var newFriend = {};
 		newFriend.userID = this.userId;
 		newFriend.friendID = friend._id;
 
-		friendFactory.create(this.userId, newFriend)
-		$route.reload();
+		friendFactory.create(this.userId, newFriend, function(){```
+			getfriends();
+		})
+		// $route.reload();
 
 	} 
 

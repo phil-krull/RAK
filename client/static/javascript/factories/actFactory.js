@@ -26,8 +26,8 @@ dak_app.factory('actFactory', function($http, userFactory) {
 
 	factory.index = function(callback) {
 		$http.get('/acts').success(function(output) {
-			console.log('Received from server getting acts')
-			console.log(output)
+			// console.log('Received from server getting acts')
+			// console.log(output)
 			acts = output;
 			callback(acts);
 		})
@@ -37,8 +37,8 @@ dak_app.factory('actFactory', function($http, userFactory) {
 	factory.create = function(info, callback)  {
 
 		$http.post('/acts', info).success(function(output) {
-			console.log('Received from server create act');
-			console.log(info);
+			// console.log('Received from server create act');
+			// console.log(info);
 			console.log(output);
 			callback(acts);
 		})

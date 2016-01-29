@@ -31,9 +31,24 @@ module.exports = {
     },
 
     update: function(req, res) {
-        Acts.findByIdAndUpdate(req.params.id, {$push:{users: req.body.userId, user_ratings: req.body.user_ratings, approval_rating: req.body.approval_rating}}, function(errors, currentact) {
+      console.log( req.body.recommend)
+      console.log( req.body.actrating)
+      console.log(typeof req.body.actID)
+      console.log(req.params.id)
+
+        Acts.find({ }, function(err, acts) {
+          console.log(acts)
+        })
+
+        Acts.findOne({ _id: req.params.id}, function(err, act) {
+          console.log(act);
+        })
+
+        Acts.findByIdAndUpdate(req.params.id, {$push:{users: req.body.userID, user_ratings: req.body.actrating, approval_rating: req.body.recommend}}, function(errors, currentact) {
           var user_rating = 0;
           var approval = 0;
+
+          console.log(currentact)
 
           for(var i = 0; i < currentact.user_ratings.length; i++) {
             user_rating += currentact.user_ratings[i];
@@ -49,6 +64,26 @@ module.exports = {
             currentact.approval = false;
           }
             currentact.save();
+
+
+          User.findOne({_id: req.body.userID}, function(err, user){
+            for(var i = 0; i < user.acts.length; i++){
+              if(user.acts[i].act_info == req.body.actID){
+                user.acts[i].completed = true;
+                user.save(function(err, user){
+          //         if(err){
+          //           res.send(err);
+          //         } else {
+          //           res.json(user);
+          // }
+        })
+        }
+      }
+
+      
+    })
+
+
 
         if(errors) {
           res.send(errors)

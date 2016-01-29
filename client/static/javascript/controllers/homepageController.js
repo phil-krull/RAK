@@ -17,12 +17,12 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	}
 
 	actFactory.index(function(data) {
-		console.log(data);
+		// console.log(data);
 		_this.acts = data;
 	})
 
 	  this.createDAK = function() {
-	  	console.log(this.newDAK);
+	  	// console.log(this.newDAK);
 
 	    actFactory.create(this.newDAK, function() {
 
@@ -43,6 +43,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	this.thisisworking = "this is working"
 
 	this.generateDAK = function() {
+
 		console.log('generateDAK function is running')
 
 		if(this.loggedin() === false) {
@@ -53,7 +54,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 					this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 					this.DAKlimit++;
 				} else if (this.DAKlimit == 2) {
-					this.reachedDAKlimit = 'You have reached the limit of generating new DAKS'
+					this.reachedDAKlimit = 'Daily limit reached. Please REGISTER for more features'
 					doNotGenerateDAK = true;
 					console.log(doNotGenerateDAK);
 					console.log(this.reachedDAKlimit);
@@ -65,6 +66,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 		} else if(this.loggedin() === true) {
 
 			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
+
 			console.log(this.generatedDAK);
 
 			var addedAct = {};
@@ -73,9 +75,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 
 			userFactory.addAct(addedAct)
 
-		}		
-		
-		
+		}
 	}
 
 	this.sendFeedback = function(){

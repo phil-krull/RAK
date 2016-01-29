@@ -51,18 +51,43 @@
     </table>
 
     <h3>Your Pending Acts</h3>
-  <div ng-repeat="act in userdashboardCtrl.acts" | ng-if="act.completed != true">
+  <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != true">
     <span ng-bind="act.act_info.name"></span>
 
 
-    <form ng-submit="userdashboardCtrl.reviewAct()">
+    <button ng-click="showcomplete=true">Complete</button>
 
-    </form>
+    <div ng-show="showcomplete">
+
+      <form>
+        Would you recommend this act to others?
+        
+        Yes: <input type="radio" name="recommend" ng-model="userdashboardCtrl.completeActForm[$index].recommend" value="1">
+        No:<input type="radio" name="recommend" ng-model="userdashboardCtrl.completeActForm[$index].recommend" value="0">
+
+        <select ng-model="userdashboardCtrl.completeActForm[$index].actrating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+
+        <textarea rows="4" cols="10" ng-model="userdashboardCtrl.completeActForm[$index].comment" placeholder="Comment on this act">
+        </textarea>
+
+
+
+        <input type="submit" ng-click="userdashboardCtrl.sendCompleteAct(act.act_info._id, $index)" value="Submit" >
+
+      </form>
+    </div>
 
   </div>
 
+
+<hr>
   <h3>Your Completed Acts</h3>
-  <div ng-repeat="act in userdashboardCtrl.acts" | ng-if="act.completed != false">
+  <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != false">
     <span ng-bind="act.act_info.name"></span>
   </div>
 

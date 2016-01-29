@@ -28,7 +28,7 @@ module.exports = function(app) {
 
 	app.post('/users/addact', Users.addAct)
 
-  app.patch('/users/completeact', Users.completeAct)
+  // app.patch('/users/completeact', Users.completeAct)
 
 	app.post('/friends/:id' , Users.addFriend)
 
@@ -53,6 +53,10 @@ module.exports = function(app) {
 
   app.patch('/acts/:id', function(req, res) {
     Acts.update(req, res)
+  })
+
+  app.get('/friends/:id', function(req, res) {
+    Users.show(req, res);
   })
 
 }

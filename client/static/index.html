@@ -6,20 +6,13 @@
 	<script src="./source/angular.js"></script>
 	<script src="./source/angular_routes.js"></script>
 	<script src="./source/angular-cookies.js"></script>
-	<!-- ==============BootStrap================= -->
-	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <script src="./angular-bootstrap/ui-bootstrap.min.js"></script>
 	<!-- ================stylesheet/css=============== -->
 	<link rel="stylesheet" href="./stylesheets/styles.css">
-	
-	
 	<script src="./javascript/main.js"></script>
-	
 	<script src="./javascript/controllers/homepageController.js"></script>
 	<script src="./javascript/controllers/loginController.js"></script>
 	<script src="./javascript/controllers/logoutController.js"></script>
 	<script src="./javascript/controllers/registerController.js"></script>
-	
 	<script src="./javascript/controllers/userdashboardController.js"></script>
 	<script src="./javascript/controllers/frienddashboardController.js"></script>
 	<script src="./javascript/controllers/leaderdashboardController.js"></script>
@@ -29,6 +22,9 @@
 	<script src="./javascript/factories/feedbackFactory.js"></script>
 	
 
+	<!-- ==============BootStrap================= -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+	<script src="./angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 </head>
 <body ng-controller="homepageController as homepageCtrl">
@@ -59,11 +55,11 @@
 					  		</div>
 					  		<button type="submit" class="btn btn-default" ng-click='hompageCtrl.createDAK()'>Submit</button>
 						</div>
-					</form>
 						<!-- <input type="submit" ng-click="homepageCtrl.createDAK()" class="input-group-addon"></span> -->
 					<div ng-show="homepageCtrl.actSubmittedMessage">
 					<span ng-bind="homepageCtrl.actSubmittedMessage"></span>
 					</div>
+					</form>
 				</td>
 				<td><a href="#/register">Register</a></td>
 				<td><a href="#/contact_us">Contact Us</a></td>

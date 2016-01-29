@@ -12,11 +12,12 @@ dak_app.factory('friendFactory', function($http) {
 	}
 
 
-	factory.create = function(user, info) {
+	factory.create = function(user, info, callback) {
 		// attach friendID and userID
 		$http.post('friends/'+user, info).success(function(output) {
 			console.log('Received from server create friend');
-			console.log(output);
+			console.log(info);
+			callback();
 		})
 
 	}
@@ -26,6 +27,12 @@ dak_app.factory('friendFactory', function($http) {
 			console.log('Received from server delete friend');
 			console.log(output);
 			
+		})
+	}
+
+	factory.showFriends = function(user, info) {
+		$http.get('friends/' + user).success(function(output) {
+			info(output);
 		})
 	}
 
