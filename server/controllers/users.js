@@ -123,22 +123,7 @@ module.exports = {
 	},
 	completeAct: function(req,res){
 		console.log(req.body.recommend)
-		User.findOne({_id: req.body.userID}, function(err, user){
-			for(var i = 0; i < user.acts.length; i++){
-				if(users.acts[i].act_info == req.body.actID){
-					users.acts[i].completed = true;
-				user.save(function(err, user){
-					if(err){
-						res.send(err);
-					} else {
-						res.json(user);
-					}
-				})
-				}
-			}
-
-			
-		})
+		
 	},
 
 
