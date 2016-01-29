@@ -1,17 +1,16 @@
 <div>
 	<link rel="stylesheet" href="./stylesheets/homepage-styles.css">
 	<div class="main">
-		<h2>Imagine a World</h2>
-		<h2>Where <span id="blue">Others</span></h2>
-		<h2><span id="blue">Come First</span></h2><br>
+		<h2>Imagine a World Where <span id="blue">Others</span>
+		<span id="blue">Come First</span>
 		<button ng-click="homepageCtrl.generateDAK()">Get My Daily Act of Kindness</button> 
 
-		<div id="displayMsg" ng-show="homepageCtrl.generatedDAK">
+		<div id="newMsg" ng-show="homepageCtrl.generatedDAK">
 			<p>Your Daily Act of Kindess...</p>
 			<span ng-bind="homepageCtrl.generatedDAK.name" style="color: white"></span>
 		</div>
 
-		<div id="displayMsg" ng-show="homepageCtrl.reachedDAKlimit">
+		<div id="newMsg" ng-show="homepageCtrl.reachedDAKlimit">
 			<p><span ng-bind="homepageCtrl.reachedDAKlimit"></span></p>
 		</div>
 
