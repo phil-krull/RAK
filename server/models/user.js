@@ -17,13 +17,9 @@ var usersSchema = new Schema({
 	password: {type: String, required: true},
 	friends: [{ type: Schema.Types.ObjectId, ref: 'user'}],
 	acts: [{
-
 		act_info: {type: Schema.Types.ObjectId, ref: 'act' },
-
-
 		completed: Boolean
 	}]
-	
 });
 usersSchema.plugin(validate_unique, {message: 'Error, expected {PATH} to be unique.'});
 

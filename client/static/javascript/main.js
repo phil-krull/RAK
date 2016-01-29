@@ -52,6 +52,11 @@ dak_app.config(function ($routeProvider) {
       controller: 'homepageController',
       controllerAs: 'homepageCtrl'
     })
+    .when('/showfriend', {
+      templateUrl:'./partials/showfriend.html',
+      controller: 'frienddashboardController',
+      controllerAs: 'frienddashboardCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     })

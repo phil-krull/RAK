@@ -36,5 +36,11 @@ dak_app.factory('friendFactory', function($http) {
 		})
 	}
 
+	factory.showOne = function(user, info) {
+		$http.get('users/' + user).success(function(output) {
+			info(output);
+		})
+	}
+
 	return factory;
 })
