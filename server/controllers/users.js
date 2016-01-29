@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+ var mongoose = require('mongoose');
 
 var User = mongoose.model('user');
 var bcrypt = require('bcrypt');

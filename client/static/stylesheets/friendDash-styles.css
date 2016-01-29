@@ -46,3 +46,21 @@ h1 {
 #searchFriends, #users{
     padding: 5%;
 }
+
+.steelblue{
+    background-color: rgba(49,122,183, 0.7);
+    
+}
+
+.forrestgreen{
+    
+    background-color: rgba(29,114,29,0.7);
+}
+
+.table{
+    color: white;
+    overflow: scroll;
+}
+.centered{
+    text-align: center;
+}
