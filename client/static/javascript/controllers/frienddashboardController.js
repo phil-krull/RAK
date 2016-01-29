@@ -89,14 +89,4 @@ dak_app.controller('frienddashboardController', function($route, friendFactory, 
 		friendFactory.destroy(this.userId, removeFriend)
 		$route.reload();
 	}
-
-	this.showOne = function(show) {
-		friendFactory.showOne(show, function(user) {
-			_this.showUser = user;
-			
-			console.log(_this.showUser)
-		}) 
-	}
-
-
 })

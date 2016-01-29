@@ -12,7 +12,7 @@
         <th>Add Friend</th>
       </tr>
       <tr ng-repeat="user in frienddashboardCtrl.mynotfriends" | ng-if="user._id != frienddashboardCtrl.userId">
-        <td><a href="#/showfriend" ng-bind="user.name" ng-click="frienddashboardCtrl.showOne(user._id)"></a></td>
+        <td><a href="#/user/{{ user._id }}" ng-bind="user.name"></a></td>
         <td><span ng-bind="user._id"></span></td>
         <td><span ng-bind="user.done"></span></td>
         <td><input type="submit" ng-click="frienddashboardCtrl.addFriend(user)" value="Add"></td>

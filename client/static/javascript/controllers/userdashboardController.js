@@ -8,7 +8,12 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 
 	var _this = this;
 	userFactory.show(this.userId, function(data) {
+		console.log(data)
 		_this.user = data;
+		console.log('getting user rating')
+		getUserRating()
+		console.log(_this.currentUserRating)
+
 	})
 
 	actFactory.index(function(data) {
@@ -16,6 +21,33 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		_this.acts = data;
 
 	}) 
+
+
+	this.currentUserRating;
+
+	function getUserRating() {
+		
+		if(_this.user.acts > 0) {
+			console.log(_this.user.acts[0].act_info.avg_rating)
+			var ratings = [];
+			var total = 0;
+
+			for(i = 0; i < _this.user.acts.length; i++) {
+				ratings.push(_this.user.acts[i].act_info.avg_rating)
+			}
+			for(j = 0; j < ratings.length; j++) {
+				total += ratings[j]
+			}
+
+			_this.currentUserRating = total/ratings.length;
+
+		} else {
+			_this.currentUserRating = "You don't have a rating! Click on 'Generate DAK' to start your first!"
+		}
+	}
+
+	
+
 
 	this.generatedDAK;
 
@@ -62,6 +94,9 @@ dak_app.controller('userdashboardController', function(userFactory, $cookies, ac
 		this.completeActForm[index] = {};
 
 	}
+
+
+
 
 
 })
