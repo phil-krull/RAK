@@ -14,12 +14,12 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 
 
 	actFactory.index(function(data) {
-		console.log(data);
+		// console.log(data);
 		_this.acts = data;
 	})
 
 	  this.createDAK = function() {
-	  	console.log(this.newDAK);
+	  	// console.log(this.newDAK);
 
 	    actFactory.create(this.newDAK);
 	    this.newDAK = {};
@@ -32,7 +32,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 	this.thisisworking = "this is working"
 
 	this.generateDAK = function() {
-		console.log('generateDAK function is running')
+		// console.log('generateDAK function is running')
 		if(!this.loggedin) {
 			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 			if(this.DAKlimit == 1) {
@@ -46,7 +46,7 @@ dak_app.controller('homepageController', function($cookies, $location, userFacto
 		} else {
 			this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 		}
-		console.log(this.generatedDAK)
+		// console.log(this.generatedDAK)
 	}
 
 	this.sendFeedback = function(){

@@ -41,7 +41,7 @@ module.exports = {
 
 		newUser.save(function(err, newUser){
 			if(err){
-				console.log(err);
+				// console.log(err);
 				res.send(err);
 			} else{
 				res.json(newUser);
@@ -64,7 +64,7 @@ module.exports = {
 
 	addFriend: function(req,res){
 		User.findOne({_id: req.params.id}, function(err, user){
-			console.log(user);
+			// console.log(user);
 			user.friends.push(req.body.friendID);
 
 			user.save(function(err,User){
@@ -78,7 +78,7 @@ module.exports = {
 	},
 	destroy: function(req,res){
 		User.findOne({_id: req.params.id}, function(err, user){
-			console.log(user);
+			// console.log(user);
 			user.friends.splice(req.body.friendID);
 			user.save(function(err, user){
 				if(err){
@@ -94,6 +94,7 @@ module.exports = {
 		User.findOne({_id: req.params.id}).deepPopulate('friends')
 
 		.exec(function(err, user) {
+			console.log(user);
 			if(err){
 				res.json(err);
 			} else {
@@ -117,4 +118,8 @@ module.exports = {
 			}
 		})
 	}
+
+	// show: funcion(req, res) {
+	// 	User.findOne({_id: req.params.id})
+	// }
 }

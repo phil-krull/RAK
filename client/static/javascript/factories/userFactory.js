@@ -5,8 +5,8 @@ dak_app.factory('userFactory', function($http) {
 
 	factory.index = function(callback) {
 		$http.get('/users').success(function(output) {
-			console.log('Received from server getting users')
-			console.log(output);
+			// console.log('Received from server getting users')
+			// console.log(output);
 			users = output;
 			callback(users);
 		})
@@ -16,8 +16,8 @@ dak_app.factory('userFactory', function($http) {
 	factory.login = function(info, callback) {
 
 		$http.post('/loginuser', info).success(function(output) {
-			console.log('Received from server login user');
-			console.log(output);
+			// console.log('Received from server login user');
+			// console.log(output);
 			callback(output);
 
 		})
@@ -26,16 +26,16 @@ dak_app.factory('userFactory', function($http) {
 
 	factory.create = function(info, callback) {
 		$http.post('/users', info).success(function(output) {
-			console.log('Received from server create user');
-			console.log(output)
+			// console.log('Received from server create user');
+			// console.log(output)
 			callback(output)
 		})
 	}
 
 	factory.show = function(info, callback) {
 		$http.get('/users/'+info).success(function(output) {
-			console.log('Received from server show user');
-			console.log(output);
+			// console.log('Received from server show user');
+			// console.log(output);
 			callback(output);
 		})
 	}
