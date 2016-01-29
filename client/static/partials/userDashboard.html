@@ -1,20 +1,20 @@
 <link rel="stylesheet" href="./stylesheets/userDash-styles.css">
 <div class="userdashboardContainer">
 
-	<h2><span ng-bind="userdashboardCtrl.userName"></span>'s User Dashboard</h2>
+	<h2><span ng-bind="userdashboardCtrl.userName"></span>'s Dashboard</h2>
 
   <div ng-show="userdashboardCtrl.currentUserRating">
     <h4><span id="blue">Your Rating:</span> <span ng-bind="userdashboardCtrl.currentUserRating"></span></h4>
   </div>
 
   <button ng-click="userdashboardCtrl.generateDAK()">Generate Daily Act</button>
-<!--   ============the daily act is repeating here and in pending=======
-  <div ng-show="userdashboardCtrl.generatedDAK">
-  <span ng-bind="userdashboardCtrl.generatedDAK.name"></span>
+
+  <div id="newDak" ng-show="userdashboardCtrl.generatedDAK">
+    <span ng-bind="userdashboardCtrl.generatedDAK.name"></span>
   </div>
-  =============so I commented it out - Dale ======================= -->
-<!-- 	<table id='friends'>
-      Search Your Friends: <input type="text" ng-model="yourfriendFilter">
+<h3>My Friends</h3> 
+<table id='friends'>
+      <!-- Search Your Friends: <input type="text" ng-model="yourfriendFilter"> -->
       <tr>
         <th>Name</th>
         <th>Pending DAK's</th>
@@ -25,50 +25,60 @@
         <td><a href="#/user/{{friend._id}}"<span ng-bind="friend.name"></span></a></td>
         <td><span ng-bind="friend.pending"></span></td>
         <td><span ng-bind="friend.done"></span></td>
-        <td><input type="submit" ng-click="frienddashboardCtrl.removeFriend(friend)" value="Remove"></td>
+        <td><div class="btn-group-xs" role="group" aria-label="...">
+          <button type="button" class="btn btn-default" ng-click="frienddashboardCtrl.removeFriend(friend)">Remove</button>
+          </div>
+        </td>
       </tr>
-    </table> -->
-
-    <h3>Your Pending Acts</h3>
-  <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != true">
-    <a href="#/act/{{act.act_info._id}}"<span ng-bind="act.act_info.name"></span></a>
+    </table>
 
 
-    <button ng-click="showcomplete=true">Complete</button>
+  <h3>Your Pending Acts</h3>
+  <div id="topTable">
+    <table id="pendingTable">
+      <tr ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != true">
+        <td>
+          <a href="#/act/{{act.act_info._id}}"<span ng-bind="act.act_info.name"></span></a>
+        </td>
+        <td><div class="btn-group-xs" role="group" aria-label="...">
+          <button type="button" class="btn btn-default" ng-click="showcomplete=true">Done</button>
+          </div>
+        </td>
+        <td>
+          <div ng-show="showcomplete">
 
-    <div ng-show="showcomplete">
+            <form>
+              <span id="yellow">Recommend this to others?</span>
+              <span id="white">Yes:</span> <input type="radio" name="recommend" ng-model="userdashboardCtrl.completeActForm[$index].recommend" value="1">
+              <span id="white">No:</span> <input type="radio" name="recommend" ng-model="userdashboardCtrl.completeActForm[$index].recommend" value="0">
 
-      <form>
-        Would you recommend this act to others?
-        
-        Yes: <input type="radio" name="recommend" ng-model="userdashboardCtrl.completeActForm[$index].recommend" value="1">
-        No:<input type="radio" name="recommend" ng-model="userdashboardCtrl.completeActForm[$index].recommend" value="0">
-
-        <select ng-model="userdashboardCtrl.completeActForm[$index].actrating">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-
-        <textarea rows="4" cols="10" ng-model="userdashboardCtrl.completeActForm[$index].comment" placeholder="Comment on this act">
-        </textarea>
-
-
-
-        <input type="submit" ng-click="userdashboardCtrl.sendCompleteAct(act.act_info._id, $index)" value="Submit" >
-
-      </form>
-    </div>
-
+              <select ng-model="userdashboardCtrl.completeActForm[$index].actrating">
+                <option value="rate" selected>Rate Task</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+      <!--         <textarea rows="4" cols="10" ng-model="userdashboardCtrl.completeActForm[$index].comment" placeholder="Comment on this act">
+              </textarea> -->
+              <div class="btn-group-xs" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" ng-click="userdashboardCtrl.sendCompleteAct(act.act_info._id, $index)">Submit</button>
+              </div>
+            <!--   <input type="submit"  value="Submit" > -->
+            </form>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
-
-
 <hr>
-  <h3>Your Completed Acts</h3>
+<h3>Your Completed Acts</h3>
+<div id="bottomTable">
   <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != false">
     <a href="#/act/{{act.act_info._id}}"<span ng-bind="act.act_info.name"></span></a>
   </div>
+</div>
 
 
 
