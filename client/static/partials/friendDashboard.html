@@ -8,8 +8,7 @@
       <table class='table'>
         <tr class='steelblue'>
           <th>Name</th>
-          <th>Pending DAK's</th>
-          <th>Done DAK's</th>
+          <th>Friend Rating</th>
           <th>Remove Friend</th>
         </tr>
         <tr class='forrestgreen' ng-repeat="friend in frienddashboardCtrl.friends | filter:yourFriendFilter">
@@ -27,8 +26,7 @@
   <table>
     <tr>
       <th>Name</th>
-      <th>Pending DAK's</th>
-      <th>Done DAK's</th>
+      <th>User Rating</th>
       <th>Add Friend</th>
     </tr>
     <tr ng-repeat="user in frienddashboardCtrl.mynotfriends" | ng-if="user._id != frienddashboardCtrl.userId">
