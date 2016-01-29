@@ -20,6 +20,7 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 
 	function generateDAKonReg() {
 
+		_this.generateDAKValidation = false;
 		this.generatedDAK = acts[Math.floor(acts.length * Math.random())]
 		console.log(this.generatedDAK);
 
@@ -58,6 +59,7 @@ dak_app.controller('userdashboardController', function(userFactory, $routeParams
 
 		if( _this.generateDAKValidation == 'generateDAK') {
 			generateDAKonReg();
+		
 	}
 
 	}) 
