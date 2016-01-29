@@ -1,41 +1,45 @@
-<h1><span ng-bind="showuserCtrl.user.name"></span></h1>'s Dashboard
+<link rel="stylesheet" type="text/css" href="./../stylesheets/userStyles.css">
 
-<span ng-bind="showuserCtrl.user.name"></span>'s Rating:
-<div ng-show="showuserCtrl.currentUserRating">
-  <h1><span ng-bind="showuserCtrl.currentUserRating"></span>
-  </div>
+<div class='userContainer'>
+
+      <h1 class='yellow'><span ng-bind="showuserCtrl.user.name"></span>'s Dashboard</h1>
+
+      <h2 class='yellow'><span ng-bind="showuserCtrl.user.name"></span>'s Rating:</h2>
+      
+        <div ng-show="showuserCtrl.currentUserRating">
+            <h1><span ng-bind="showuserCtrl.currentUserRating"></span>
+        </div>
 
 
-	<table id='friends'>
-      Search <span ng-bind="showuserCtrl.user.name"></span>'s Friends: <input type="text" ng-model="yourfriendFilter">
-      <tr>
-        <th>Name</th>
-        <th>Pending DAK's</th>
-        <th>Done DAK's</th>
+    <h2 class='yellow'>Friends</h2>
+      	<table id='friends_table'>
+            <tr class='steelblue'>
+              <th>Name</th>
+              <th>Rating</th>
+             
+             
+            </tr>
+            <tr class='forrestgreen' ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
+              <td><span ng-bind="friend.name"></span></td>
+              <td><span ng-bind="friend.pending"></span></td>
+              <td><span ng-bind="friend.done"></span></td>
+             
+            </tr>
+          </table>
+
+          <h3 class='yellow'><span ng-bind="showuserCtrl.user.name"></span>'s Pending Acts</h3>
+        <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != true">
+            <span ng-bind="act.act_info.name"></span>     
+        </div>
+
        
-      </tr>
-      <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
-        <td><span ng-bind="friend.name"></span></td>
-        <td><span ng-bind="friend.pending"></span></td>
-        <td><span ng-bind="friend.done"></span></td>
-       
-      </tr>
-    </table>
-
-    <h3><span ng-bind="showuserCtrl.user.name"></span>'s Pending Acts</h3>
-  <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != true">
-    <span ng-bind="act.act_info.name"></span>     
-    </div>
-
-  </div>
 
 
-<hr>
-  <h3><span ng-bind="showuserCtrl.user.name"></span>'s Completed Acts</h3>
-  <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != false">
-    <span ng-bind="act.act_info.name"></span>
-  </div>
+      <hr>
 
+        <h3 class='yellow'><span ng-bind="showuserCtrl.user.name"></span>'s Completed Acts</h3>
+        <div ng-repeat="act in userdashboardCtrl.user.acts" | ng-if="act.completed != false">
+          <span ng-bind="act.act_info.name"></span>
+        </div>
+    
 
-
-</div>

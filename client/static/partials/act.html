@@ -1,22 +1,41 @@
-<h1>Act: <span ng-bind="showactCtrl.act.name"></span></h1> 
-
-<h3>Approval Rating</h3>
-<span ng-bind="showactCtrl.act.currApprovalRating"></span>%
-out of: <span ng-bind="showactCtrl.act.approval_rating.length"></span> user(s)
-
-<h3>Average User Rating</h3>
-<span ng-bind="showactCtrl.act.currAverageUserRating"></span>
-
-<h3>Users</h3>
-<table>
-<tr>
-	<th>Name</th>
-</tr>
-<tr ng-repeat="user in showactCtrl.act.users">
-	<td><span ng-bind="user.name"></span></td>
+<link rel="stylesheet" type="text/css" href="./../stylesheets/actsStyles.css">
 
 
-</tr>
+<div class='actContainer'>
+	<h2>Act: <span ng-bind="showactCtrl.act.name"></span></h2> 
 
-</table>
+	<div id='usersTable'>
+		<h3 class='yellow'>Users</h3>
+		
+		<table class='users_table'>
+			<tr class='steelblue'>
+				<th>Name</th>
+				<th>Rating</th>
+			</tr>
+
+			<tr class='forrestgreen' ng-repeat="user in showactCtrl.act.users">
+				<td><span ng-bind="user.name"></span></td>
+				<td><span ng-bind="user.currentUserRating"></span></td>
+			</tr>
+
+		</table>
+	</div>
+	
+
+	<div id='rating'>
+		<h3 class='yellow'>Approval Rating</h3>
+
+		<div class='white'>
+			<span ng-bind="showactCtrl.act.currApprovalRating"></span>%
+			out of: <span ng-bind="showactCtrl.act.approval_rating.length"></span> user(s)
+		</div>
+
+		<h3 class='yellow'>Average User Rating</h3>
+		<span class='white' ng-bind="showactCtrl.act.currAverageUserRating"></span>
+	</div>
+
+
+
+
+</div>
 
