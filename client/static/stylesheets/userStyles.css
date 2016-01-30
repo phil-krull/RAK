@@ -45,3 +45,11 @@ tr {
 #friends_table th{
     width: 10%;
 }
+.midYellow{
+     color: rgba(255,219,77,0.9);
+     text-align: center;
+     margin-top: 1%;
+}
+#button {
+    text-align: center;
+}

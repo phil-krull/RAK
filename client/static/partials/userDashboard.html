@@ -20,9 +20,9 @@
         <th>User Rating</th>
         <th>Remove Friend</th>
       </tr>
-      <tr ng-repeat="friend in userdashboardCtrl.user.friends | filter:yourFriendFilter">
+      <tr ng-repeat="friend in userdashboardCtrl.user.friends | orderBy: '-rating' | filter:yourFriendFilter">
         <td><a href="#/user/{{friend._id}}"<span ng-bind="friend.name"></span></a></td>
-        <td><span ng-bind="friend.rating"></span></td>
+        <td class="white"><span ng-bind="friend.rating"></span></td>
         <td><div class="btn-group-xs" role="group" aria-label="...">
           <button type="button" class="btn btn-success" ng-click="userdashboardCtrl.removeFriend(friend)">Remove</button>
           </div>
