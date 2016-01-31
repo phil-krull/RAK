@@ -2,8 +2,8 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
-	console.log(this.userId);
-	console.log(this.userName);
+	// console.log(this.userId);
+	// console.log(this.userName);
 
 	this.user = {};
 	this.acts = [];
@@ -16,7 +16,7 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 	// 	$cookies.remove('generateDAKonReg');
 	// }	
 	this.generateDAKValidation = $routeParams.generateDAK
-		console.log(this.generateDAKValidation)
+		// console.log(this.generateDAKValidation)
 
 	this.generatedDAK;
 
@@ -32,7 +32,6 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 
 		var _this = this;
 		userFactory.addAct(addedAct, function() {
-
 			userFactory.show($cookies.get('userId'), function(data) {
 				console.log(data);
 				_this.user = data;
@@ -41,19 +40,20 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 	}
 
 
-
-
 	var _this = this;
 
+	function showmyPage() {
+		userFactory.show(this.userId, function(data) {
+			console.log(this.userID)
+			// _this.user = data;
+			console.log(data)
+		})
+	}
 
-	userFactory.show(this.userId, function(data) {
-		console.log(data)
-		_this.user = data;
-		console.log('getting user rating')
-		getUserRating()
-		console.log(_this.currentUserRating)
-		getFriends()
-		console.log(_this.user.friends)
+	showmyPage();
+	getUserRating();
+	getFriends();
+
 
 
 	// function showFriends() {
@@ -72,19 +72,15 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 		// 	console.log('getting user rating')
 		// 	getUserRating()
 		// 	console.log(_this.currentUserRating)
-		})
+		// })
 	
 
 	actFactory.index(function(data) {
-		console.log(data);
 		_this.acts = data;
-
 		if( _this.generateDAKValidation == 'generateDAK') {
 			generateDAKonReg();
-		
-	}
-
-	}) 
+		}
+	})
 
 
 	this.currentUserRating;
@@ -184,15 +180,14 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 
 
 		this.removeFriend = function(friend) {
-			console.log(this.userId)
-			console.log(friend)
 			var removeFriend = {};
 			removeFriend.userID = this.userId;
-			removeFriend.friendID = friend;
-			console.log('this is it')
-			console.log(removeFriend.friendID)
-			friendFactory.destroy(this.userId, removeFriend)
-			// showFriends();
+
+			removeFriend.friendID = friend._id;
+			friendFactory.destroy(removeFriend, function() {
+				showremovedFriends()
+			})
+
 		}
 
 	function getFriends() {

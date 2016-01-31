@@ -53,24 +53,24 @@ module.exports = {
     },
 
     update: function(req, res) {
-      console.log( req.body)
+      // console.log( req.body)
       // console.log( req.body.actrating)
       // console.log(typeof req.body.actID)
       // console.log(req.params.id)
 
         Acts.find({ }, function(err, acts) {
-          console.log(acts)
+          // console.log(acts)
         })
 
         Acts.findOne({ _id: req.params.id}, function(err, act) {
-          console.log(act);
+          // console.log(act);
         })
 
         Acts.findByIdAndUpdate(req.params.id, {$push:{users: req.body.userID, user_ratings: req.body.actrating, approval_rating: req.body.recommend}}, function(errors, currentact) {
           var user_rating = 0;
           var approval = 0;
 
-          console.log(currentact)
+          // console.log(currentact)
 
           for(var i = 0; i < currentact.user_ratings.length; i++) {
             user_rating += currentact.user_ratings[i];

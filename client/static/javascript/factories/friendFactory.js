@@ -23,12 +23,14 @@ dak_app.factory('friendFactory', function($http) {
 
 	}
 
-	factory.destroy = function(user, info) {
-		console.log(user)
-		console.log(info)
-		$http.patch('friends/'+user, info).success(function(output) {
-			console.log('Received from server delete friend');
-			console.log(output);
+
+	factory.destroy = function(info) {
+		console.log(info, 'destroy in factory')
+		$http.patch('friends/' + info.userID, info).success(function(output) {
+			// console.log('Received from server delete friend');
+			// console.log(output);
+			// callback();
+
 			
 		})
 	}
