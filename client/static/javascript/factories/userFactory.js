@@ -35,6 +35,7 @@ dak_app.factory('userFactory', function($http) {
 	}
 
 	factory.show = function(info, callback) {
+		console.log(info)
 		$http.get('/users/'+info).success(function(output) {
 			// console.log('Received from server show user');
 			// console.log(output);

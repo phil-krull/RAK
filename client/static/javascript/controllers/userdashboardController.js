@@ -2,7 +2,8 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 
 	this.userId = $cookies.get('userId');
 	this.userName = $cookies.get('userName')
-	// console.log(this.userId);
+	console.log('the user id is')
+	console.log(this.userId);
 	// console.log(this.userName);
 
 	this.user = {};
@@ -43,16 +44,19 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 	var _this = this;
 
 	function showmyPage() {
-		userFactory.show(this.userId, function(data) {
-			console.log(this.userID)
-			// _this.user = data;
-			console.log(data)
+		console.log(_this.userId)
+		userFactory.show(_this.userId, function(data) {
+			
+			_this.user = data;
+			getUserRating();
+			getFriends();
+	
 		})
 	}
 
 	showmyPage();
-	getUserRating();
-	getFriends();
+	
+
 
 
 
