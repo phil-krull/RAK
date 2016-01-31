@@ -92,20 +92,39 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 	function getUserRating() {
 		
 		if(_this.user.acts != 0) {
-			console.log(_this.user.acts[0].act_info.avg_rating)
+			
 			var ratings = [];
 			var total = 0;
 
+
+
 			for(i = 0; i < _this.user.acts.length; i++) {
-				ratings.push(_this.user.acts[i].act_info.avg_rating)
-			}
-			for(j = 0; j < ratings.length; j++) {
-				total += ratings[j]
+
+				if(_this.user.acts[i].completed === true) {
+
+					if(_this.user.acts[i].act_info.avg_rating != 0) {
+
+
+						ratings.push(_this.user.acts[i].act_info.avg_rating)
+
+					}
+				}
 			}
 
-			var num = total/ratings.length;
+			if(ratings != 0) {
 
-			_this.currentUserRating = num.toFixed(1);
+				console.log(ratings)
+				for(j = 0; j < ratings.length; j++) {
+							total += ratings[j]
+				}
+
+				var num = total/ratings.length;
+
+				_this.currentUserRating = num.toFixed(1);
+			} else if(ratings == 0) {
+				
+				_this.currentUserRating = "You haven't completed an act or acts have not been rated yet! Finish an act to rate and you'll get rated!"
+			}
 
 		} else {
 			_this.currentUserRating = "You don't have a rating! Click on 'Get Daily Act' to start your first!"
@@ -170,11 +189,15 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 			var removeFriend = {};
 			removeFriend.userID = this.userId;
 			removeFriend.friendID = friend;
+			console.log('this is it')
+			console.log(removeFriend.friendID)
 			friendFactory.destroy(this.userId, removeFriend)
 			// showFriends();
 		}
 
 	function getFriends() {
+
+	
 
 		for(z = 0; z < _this.user.friends.length; z++) {
 
@@ -182,20 +205,44 @@ dak_app.controller('userdashboardController', function(userFactory, friendFactor
 				var ratings = [];
 				var total = 0;
 
+
 				for(i = 0; i < _this.user.friends[z].acts.length; i++) {
-					ratings.push(_this.user.friends[z].acts[i].act_info.avg_rating)
+
+					if(_this.user.friends[z].acts[i].completed === true) {
+
+						if(_this.user.friends[z].acts[i].act_info.avg_rating != 0) {
+
+							ratings.push(_this.user.friends[z].acts[i].act_info.avg_rating)
+
+						}
+					}
 				}
-				for(j = 0; j < ratings.length; j++) {
+
+				if(ratings != 0) {
+
+					for(j = 0; j < ratings.length; j++) {
 					total += ratings[j]
+					
+					}
+
+					var num = total/ratings.length;
+
+					_this.user.friends[z].rating = num.toFixed(1);
+
+				} else if(ratings == 0) {
+					_this.user.friends[z].rating = "No Rating"
 				}
 
-				var num = total/ratings.length;
-
-				_this.user.friends[z].rating = num.toFixed(1);
+					
+				
+				
 			} else {
-				_this.user.friends[z].rating = 0;
+				
+				_this.user.friends[z].rating = "No Rating";
 			}
 		}
+
+
 	}
 
 })

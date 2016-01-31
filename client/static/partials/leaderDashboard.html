@@ -11,7 +11,7 @@
             <th class='yellow'>Member rating: </th>
           </tr>
 
-          <tr class='forrestgreen' ng-repeat="user in leaderdashboardCtrl.users | orderBy: '-rating'">
+          <tr class='forrestgreen' ng-repeat="user in leaderdashboardCtrl.users | orderBy: '-rating'" ng-if="user.rating != 'No Rating'">
             <td ><a href="#/user/{{user._id}}"<span ng-bind="user.name"></span></a></td>
             <td class="white" ng-bind="user.acts.length"></td>
             <td class="white" ng-bind="user.rating"></td>

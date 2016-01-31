@@ -24,7 +24,9 @@ dak_app.factory('friendFactory', function($http) {
 	}
 
 	factory.destroy = function(user, info) {
-		$http.delete('friends/'+user, info).success(function(output) {
+		console.log(user)
+		console.log(info)
+		$http.patch('friends/'+user, info).success(function(output) {
 			console.log('Received from server delete friend');
 			console.log(output);
 			

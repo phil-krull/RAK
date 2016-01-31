@@ -21,17 +21,34 @@ dak_app.controller('leaderdashboardController', function(actFactory, userFactory
             var total = 0;
 
             for(i = 0; i < users[z].acts.length; i++) {
-              ratings.push(users[z].acts[i].act_info.avg_rating)
-            }
-            for(j = 0; j < ratings.length; j++) {
-              total += ratings[j]
+
+              if(users[z].acts[i].completed === true) {
+
+                if(users[z].acts[i].act_info.avg_rating != 0) {
+
+                  ratings.push(users[z].acts[i].act_info.avg_rating)
+                  
+                }
+
+              }
+
             }
 
-            var num = total/ratings.length
+            if(ratings != 0) {
 
-            users[z].rating = num.toFixed(1);
+              for(j = 0; j < ratings.length; j++) {
+                total += ratings[j]
+              }
+
+              var num = total/ratings.length
+
+              users[z].rating = num.toFixed(1);
+              
+            } else if(ratings == 0) {
+              users[z].rating = "No Rating"
+            }
           } else {
-            users[z].rating = 0;
+            users[z].rating = "No Rating";
           }
        }
     

@@ -7,7 +7,7 @@ var User = mongoose.model('user');
 module.exports = {
 
     show: function(req, res) {
-      Acts.findOne({_id: req.params.id}).deepPopulate('users')
+      Acts.findOne({_id: req.params.id}).deepPopulate('users users.acts users.acts.act_info')
 
       .exec(function(err, act) {
         if(err) {

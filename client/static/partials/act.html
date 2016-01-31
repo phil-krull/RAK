@@ -14,9 +14,9 @@
 				<th>Rating</th>
 			</tr>
 
-			<tr class='forrestgreen' ng-repeat="user in showactCtrl.act.users">
+			<tr class='forrestgreen' ng-repeat="user in showactCtrl.act.users | orderBy: '-rating'">
 				<td><span ng-bind="user.name"></span></td>
-				<td><span ng-bind="user.currentUserRating"></span></td>
+				<td><span ng-bind="user.rating"></span></td>
 			</tr>
 
 		</table>
@@ -32,7 +32,7 @@
 		</div>
 
 		<h3 class='yellow'>Average User Rating</h3>
-		<span class='white' ng-bind="showactCtrl.act.currAverageUserRating"></span>
+		<span class='white' ng-bind="showactCtrl.act.avg_rating"></span>
 	</div>
 
 

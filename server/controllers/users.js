@@ -77,6 +77,8 @@ module.exports = {
 		})
 	},
 	destroy: function(req,res){
+		console.log(req.params.id);
+		console.log(req.body.friendID)
 		User.findOne({_id: req.params.id}, function(err, user){
 			// console.log(user);
 			user.friends.splice(req.body.friendID);
