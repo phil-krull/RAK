@@ -1,0 +1,7 @@
+
+> bcrypt@0.8.7 install /Users/pkrull/Documents/RAK/node_modules/bcrypt
+> node-gyp rebuild
+
+  CXX(target) Release/obj.target/bcrypt_lib/src/blowfish.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt_node.o
